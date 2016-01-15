@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D51AC8C1C46A43000D39FA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AC8B1C46A43000D39FA4 /* main.m */; };
-		3D51AC8F1C46A43000D39FA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AC8E1C46A43000D39FA4 /* AppDelegate.m */; };
-		3D51AC921C46A43000D39FA4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51AC911C46A43000D39FA4 /* ViewController.m */; };
-		3D51AC951C46A43000D39FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51AC931C46A43000D39FA4 /* Main.storyboard */; };
-		3D51AC971C46A43000D39FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D51AC961C46A43000D39FA4 /* Assets.xcassets */; };
-		3D51AC9A1C46A43000D39FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D51AC981C46A43000D39FA4 /* LaunchScreen.storyboard */; };
+		3D30C3F51C492F5C007234CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3F41C492F5C007234CF /* AppDelegate.m */; };
+		3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C3F61C492F7C007234CF /* Assets.xcassets */; };
+		3D30C4011C492FB2007234CF /* Aria2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3FB1C492FB2007234CF /* Aria2.m */; };
+		3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3FD1C492FB2007234CF /* JsonRPC.m */; };
+		3D30C4031C492FB2007234CF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4001C492FB2007234CF /* Task.m */; };
+		3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4051C492FC7007234CF /* DownloadTableViewController.m */; };
+		3D30C4081C492FE0007234CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C4071C492FE0007234CF /* Main.storyboard */; };
+		3D30C40A1C492FF0007234CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C4091C492FF0007234CF /* LaunchScreen.storyboard */; };
+		3D30C40C1C493007007234CF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C40B1C493007007234CF /* Info.plist */; };
+		3D30C4101C4930C3007234CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C40F1C4930C3007234CF /* main.m */; };
+		3D30C4131C493140007234CF /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4121C493140007234CF /* TaskTableViewCell.m */; };
+		3D30C4161C49349E007234CF /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4151C49349E007234CF /* File.m */; };
 		3D51ACA51C46A43000D39FA4 /* Aria2DownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACA41C46A43000D39FA4 /* Aria2DownloaderTests.m */; };
 		3D51ACB01C46A43000D39FA4 /* Aria2DownloaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACAF1C46A43000D39FA4 /* Aria2DownloaderUITests.m */; };
+		C9514EC2A7255CC1EE704C2D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 744CEC635BE57811D13000AF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,22 +42,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D30C3F31C492F5C007234CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Aria2Downloader/AppDelegate.h; sourceTree = "<group>"; };
+		3D30C3F41C492F5C007234CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Aria2Downloader/AppDelegate.m; sourceTree = "<group>"; };
+		3D30C3F61C492F7C007234CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Aria2Downloader/Assets.xcassets; sourceTree = "<group>"; };
+		3D30C3FA1C492FB2007234CF /* Aria2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aria2.h; sourceTree = "<group>"; };
+		3D30C3FB1C492FB2007234CF /* Aria2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aria2.m; sourceTree = "<group>"; };
+		3D30C3FC1C492FB2007234CF /* JsonRPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonRPC.h; sourceTree = "<group>"; };
+		3D30C3FD1C492FB2007234CF /* JsonRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonRPC.m; sourceTree = "<group>"; };
+		3D30C3FF1C492FB2007234CF /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		3D30C4001C492FB2007234CF /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		3D30C4041C492FC7007234CF /* DownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadTableViewController.h; path = Aria2Downloader/DownloadTableViewController.h; sourceTree = "<group>"; };
+		3D30C4051C492FC7007234CF /* DownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadTableViewController.m; path = Aria2Downloader/DownloadTableViewController.m; sourceTree = "<group>"; };
+		3D30C4071C492FE0007234CF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Aria2Downloader/Main.storyboard; sourceTree = "<group>"; };
+		3D30C4091C492FF0007234CF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Aria2Downloader/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D30C40B1C493007007234CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Aria2Downloader/Info.plist; sourceTree = SOURCE_ROOT; };
+		3D30C40F1C4930C3007234CF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Aria2Downloader/main.m; sourceTree = "<group>"; };
+		3D30C4111C493140007234CF /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		3D30C4121C493140007234CF /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
+		3D30C4141C49349E007234CF /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		3D30C4151C49349E007234CF /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		3D51AC871C46A43000D39FA4 /* Aria2Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aria2Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D51AC8B1C46A43000D39FA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D51AC8D1C46A43000D39FA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3D51AC8E1C46A43000D39FA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D51AC901C46A43000D39FA4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D51AC911C46A43000D39FA4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3D51AC941C46A43000D39FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3D51AC961C46A43000D39FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3D51AC991C46A43000D39FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3D51AC9B1C46A43000D39FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D51ACA01C46A43000D39FA4 /* Aria2DownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aria2DownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D51ACA41C46A43000D39FA4 /* Aria2DownloaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Aria2DownloaderTests.m; sourceTree = "<group>"; };
 		3D51ACA61C46A43000D39FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D51ACAB1C46A43000D39FA4 /* Aria2DownloaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aria2DownloaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D51ACAF1C46A43000D39FA4 /* Aria2DownloaderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Aria2DownloaderUITests.m; sourceTree = "<group>"; };
 		3D51ACB11C46A43000D39FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		744CEC635BE57811D13000AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		923B92FACAC7CDAD945FD076 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E56ECB8BD6A6B1D9696C6264 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9514EC2A7255CC1EE704C2D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +99,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D0D5D5C1C492D9E004D682A /* Aria2Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				3D30C4111C493140007234CF /* TaskTableViewCell.h */,
+				3D30C4121C493140007234CF /* TaskTableViewCell.m */,
+				3D30C4041C492FC7007234CF /* DownloadTableViewController.h */,
+				3D30C4051C492FC7007234CF /* DownloadTableViewController.m */,
+				3D30C4071C492FE0007234CF /* Main.storyboard */,
+				3D30C3F91C492FB2007234CF /* aria2 */,
+				3D0D5D601C492E36004D682A /* Supporting Files */,
+			);
+			name = Aria2Downloader;
+			sourceTree = "<group>";
+		};
+		3D0D5D601C492E36004D682A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D30C3F61C492F7C007234CF /* Assets.xcassets */,
+				3D30C3F81C492F8D007234CF /* Base.lproj */,
+				3D30C40F1C4930C3007234CF /* main.m */,
+				3D30C40B1C493007007234CF /* Info.plist */,
+				3D30C4091C492FF0007234CF /* LaunchScreen.storyboard */,
+				3D30C3F31C492F5C007234CF /* AppDelegate.h */,
+				3D30C3F41C492F5C007234CF /* AppDelegate.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D30C3F81C492F8D007234CF /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Base.lproj;
+			path = Aria2Downloader/Base.lproj;
+			sourceTree = "<group>";
+		};
+		3D30C3F91C492FB2007234CF /* aria2 */ = {
+			isa = PBXGroup;
+			children = (
+				3D30C3FA1C492FB2007234CF /* Aria2.h */,
+				3D30C3FB1C492FB2007234CF /* Aria2.m */,
+				3D30C3FC1C492FB2007234CF /* JsonRPC.h */,
+				3D30C3FD1C492FB2007234CF /* JsonRPC.m */,
+				3D30C3FE1C492FB2007234CF /* Model */,
+			);
+			name = aria2;
+			path = Aria2Downloader/aria2;
+			sourceTree = "<group>";
+		};
+		3D30C3FE1C492FB2007234CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D30C3FF1C492FB2007234CF /* Task.h */,
+				3D30C4001C492FB2007234CF /* Task.m */,
+				3D30C4141C49349E007234CF /* File.h */,
+				3D30C4151C49349E007234CF /* File.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3D51AC7E1C46A43000D39FA4 = {
 			isa = PBXGroup;
 			children = (
-				3D51AC891C46A43000D39FA4 /* Aria2Downloader */,
+				3D0D5D5C1C492D9E004D682A /* Aria2Downloader */,
 				3D51ACA31C46A43000D39FA4 /* Aria2DownloaderTests */,
 				3D51ACAE1C46A43000D39FA4 /* Aria2DownloaderUITests */,
 				3D51AC881C46A43000D39FA4 /* Products */,
+				78EF3EE12927540D25AA71B1 /* Pods */,
+				81BE53EED3AA1AED31517AF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,30 +179,6 @@
 				3D51ACAB1C46A43000D39FA4 /* Aria2DownloaderUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3D51AC891C46A43000D39FA4 /* Aria2Downloader */ = {
-			isa = PBXGroup;
-			children = (
-				3D51AC8D1C46A43000D39FA4 /* AppDelegate.h */,
-				3D51AC8E1C46A43000D39FA4 /* AppDelegate.m */,
-				3D51AC901C46A43000D39FA4 /* ViewController.h */,
-				3D51AC911C46A43000D39FA4 /* ViewController.m */,
-				3D51AC931C46A43000D39FA4 /* Main.storyboard */,
-				3D51AC961C46A43000D39FA4 /* Assets.xcassets */,
-				3D51AC981C46A43000D39FA4 /* LaunchScreen.storyboard */,
-				3D51AC9B1C46A43000D39FA4 /* Info.plist */,
-				3D51AC8A1C46A43000D39FA4 /* Supporting Files */,
-			);
-			path = Aria2Downloader;
-			sourceTree = "<group>";
-		};
-		3D51AC8A1C46A43000D39FA4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3D51AC8B1C46A43000D39FA4 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		3D51ACA31C46A43000D39FA4 /* Aria2DownloaderTests */ = {
@@ -140,6 +199,23 @@
 			path = Aria2DownloaderUITests;
 			sourceTree = "<group>";
 		};
+		78EF3EE12927540D25AA71B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E56ECB8BD6A6B1D9696C6264 /* Pods.debug.xcconfig */,
+				923B92FACAC7CDAD945FD076 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		81BE53EED3AA1AED31517AF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				744CEC635BE57811D13000AF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +223,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D51ACB41C46A43000D39FA4 /* Build configuration list for PBXNativeTarget "Aria2Downloader" */;
 			buildPhases = (
+				5CB6D6BEAA5A9B2F4BE4E3F9 /* Check Pods Manifest.lock */,
 				3D51AC831C46A43000D39FA4 /* Sources */,
 				3D51AC841C46A43000D39FA4 /* Frameworks */,
 				3D51AC851C46A43000D39FA4 /* Resources */,
+				DA3E7C42CB9D28727CC38B55 /* Embed Pods Frameworks */,
+				11A62926C250B2C2DBE7C0DF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,9 +325,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D51AC9A1C46A43000D39FA4 /* LaunchScreen.storyboard in Resources */,
-				3D51AC971C46A43000D39FA4 /* Assets.xcassets in Resources */,
-				3D51AC951C46A43000D39FA4 /* Main.storyboard in Resources */,
+				3D30C40C1C493007007234CF /* Info.plist in Resources */,
+				3D30C40A1C492FF0007234CF /* LaunchScreen.storyboard in Resources */,
+				3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */,
+				3D30C4081C492FE0007234CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,14 +348,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11A62926C250B2C2DBE7C0DF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CB6D6BEAA5A9B2F4BE4E3F9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA3E7C42CB9D28727CC38B55 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D51AC831C46A43000D39FA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D51AC921C46A43000D39FA4 /* ViewController.m in Sources */,
-				3D51AC8F1C46A43000D39FA4 /* AppDelegate.m in Sources */,
-				3D51AC8C1C46A43000D39FA4 /* main.m in Sources */,
+				3D30C4031C492FB2007234CF /* Task.m in Sources */,
+				3D30C4161C49349E007234CF /* File.m in Sources */,
+				3D30C4011C492FB2007234CF /* Aria2.m in Sources */,
+				3D30C3F51C492F5C007234CF /* AppDelegate.m in Sources */,
+				3D30C4131C493140007234CF /* TaskTableViewCell.m in Sources */,
+				3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */,
+				3D30C4101C4930C3007234CF /* main.m in Sources */,
+				3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,25 +442,6 @@
 			targetProxy = 3D51ACAC1C46A43000D39FA4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3D51AC931C46A43000D39FA4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D51AC941C46A43000D39FA4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3D51AC981C46A43000D39FA4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D51AC991C46A43000D39FA4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3D51ACB21C46A43000D39FA4 /* Debug */ = {
@@ -412,23 +526,27 @@
 		};
 		3D51ACB51C46A43000D39FA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E56ECB8BD6A6B1D9696C6264 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aria2Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.happy.Aria2Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
 		3D51ACB61C46A43000D39FA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 923B92FACAC7CDAD945FD076 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aria2Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.happy.Aria2Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};
@@ -499,6 +617,7 @@
 				3D51ACB61C46A43000D39FA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D51ACB71C46A43000D39FA4 /* Build configuration list for PBXNativeTarget "Aria2DownloaderTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +626,7 @@
 				3D51ACB91C46A43000D39FA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D51ACBA1C46A43000D39FA4 /* Build configuration list for PBXNativeTarget "Aria2DownloaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +635,7 @@
 				3D51ACBC1C46A43000D39FA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

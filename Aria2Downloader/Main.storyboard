@@ -26,24 +26,14 @@
         <!--下载-->
         <scene sceneID="rqN-Zh-wmP">
             <objects>
-                <tableViewController id="nIo-XZ-hKg" sceneMemberID="viewController">
+                <tableViewController id="nIo-XZ-hKg" customClass="DownloadTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y5t-CR-a8Z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ciq-fw-SVa">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ciq-fw-SVa" id="tkP-Iq-Ik4">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="nIo-XZ-hKg" id="U12-qu-iBU"/>
-                            <outlet property="delegate" destination="nIo-XZ-hKg" id="taB-Hh-STl"/>
+                            <outlet property="dataSource" destination="nIo-XZ-hKg" id="xSE-Mz-7Qo"/>
+                            <outlet property="delegate" destination="nIo-XZ-hKg" id="1k0-dn-g2Z"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="下载" id="Wdq-pa-4qd"/>
