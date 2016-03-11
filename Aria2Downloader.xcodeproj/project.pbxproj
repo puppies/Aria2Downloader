@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1B28BC1C8C841E00F07D4D /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */; };
+		3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */; };
+		3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */; };
+		3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */; };
+		3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F22901C4A3A8100A8BE8A /* Main.storyboard */; };
 		3D30C3F51C492F5C007234CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3F41C492F5C007234CF /* AppDelegate.m */; };
 		3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C3F61C492F7C007234CF /* Assets.xcassets */; };
 		3D30C4011C492FB2007234CF /* Aria2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3FB1C492FB2007234CF /* Aria2.m */; };
 		3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3FD1C492FB2007234CF /* JsonRPC.m */; };
 		3D30C4031C492FB2007234CF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4001C492FB2007234CF /* Task.m */; };
 		3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4051C492FC7007234CF /* DownloadTableViewController.m */; };
-		3D30C4081C492FE0007234CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C4071C492FE0007234CF /* Main.storyboard */; };
-		3D30C40A1C492FF0007234CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C4091C492FF0007234CF /* LaunchScreen.storyboard */; };
-		3D30C40C1C493007007234CF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C40B1C493007007234CF /* Info.plist */; };
 		3D30C4101C4930C3007234CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C40F1C4930C3007234CF /* main.m */; };
-		3D30C4131C493140007234CF /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4121C493140007234CF /* TaskTableViewCell.m */; };
 		3D30C4161C49349E007234CF /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4151C49349E007234CF /* File.m */; };
 		3D51ACA51C46A43000D39FA4 /* Aria2DownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACA41C46A43000D39FA4 /* Aria2DownloaderTests.m */; };
 		3D51ACB01C46A43000D39FA4 /* Aria2DownloaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACAF1C46A43000D39FA4 /* Aria2DownloaderUITests.m */; };
+		3D6A8BF31C88954F008B1277 /* UIView+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF21C88954F008B1277 /* UIView+extension.m */; };
+		3D6A8BF61C89DD29008B1277 /* ButtonTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */; };
+		3D6A8BF91C89E4FF008B1277 /* AriaTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */; };
+		3D80A3B11C91A54E009B630F /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80A3B01C91A54E009B630F /* Uri.m */; };
+		3DE7613D1C9328A000CEBCC1 /* UpDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */; };
 		C9514EC2A7255CC1EE704C2D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 744CEC635BE57811D13000AF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1B28BA1C8C841E00F07D4D /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
+		3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
+		3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskView.xib; sourceTree = "<group>"; };
+		3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskTableViewCell.h; path = Aria2Downloader/TaskTableViewCell.h; sourceTree = "<group>"; };
+		3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskTableViewCell.m; path = Aria2Downloader/TaskTableViewCell.m; sourceTree = "<group>"; };
+		3D1F228F1C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D1F22911C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		3D30C3F31C492F5C007234CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Aria2Downloader/AppDelegate.h; sourceTree = "<group>"; };
 		3D30C3F41C492F5C007234CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Aria2Downloader/AppDelegate.m; sourceTree = "<group>"; };
 		3D30C3F61C492F7C007234CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Aria2Downloader/Assets.xcassets; sourceTree = "<group>"; };
@@ -53,12 +66,8 @@
 		3D30C4001C492FB2007234CF /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		3D30C4041C492FC7007234CF /* DownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadTableViewController.h; path = Aria2Downloader/DownloadTableViewController.h; sourceTree = "<group>"; };
 		3D30C4051C492FC7007234CF /* DownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadTableViewController.m; path = Aria2Downloader/DownloadTableViewController.m; sourceTree = "<group>"; };
-		3D30C4071C492FE0007234CF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Aria2Downloader/Main.storyboard; sourceTree = "<group>"; };
-		3D30C4091C492FF0007234CF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Aria2Downloader/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D30C40B1C493007007234CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Aria2Downloader/Info.plist; sourceTree = SOURCE_ROOT; };
 		3D30C40F1C4930C3007234CF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Aria2Downloader/main.m; sourceTree = "<group>"; };
-		3D30C4111C493140007234CF /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
-		3D30C4121C493140007234CF /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
 		3D30C4141C49349E007234CF /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		3D30C4151C49349E007234CF /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		3D51AC871C46A43000D39FA4 /* Aria2Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aria2Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +77,16 @@
 		3D51ACAB1C46A43000D39FA4 /* Aria2DownloaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aria2DownloaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D51ACAF1C46A43000D39FA4 /* Aria2DownloaderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Aria2DownloaderUITests.m; sourceTree = "<group>"; };
 		3D51ACB11C46A43000D39FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D6A8BF11C88954F008B1277 /* UIView+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+extension.h"; sourceTree = "<group>"; };
+		3D6A8BF21C88954F008B1277 /* UIView+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+extension.m"; sourceTree = "<group>"; };
+		3D6A8BF41C89DD29008B1277 /* ButtonTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonTabBar.h; sourceTree = "<group>"; };
+		3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonTabBar.m; sourceTree = "<group>"; };
+		3D6A8BF71C89E4FF008B1277 /* AriaTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AriaTabBarController.h; sourceTree = "<group>"; };
+		3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AriaTabBarController.m; sourceTree = "<group>"; };
+		3D80A3AF1C91A54E009B630F /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
+		3D80A3B01C91A54E009B630F /* Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uri.m; sourceTree = "<group>"; };
+		3DE7613B1C9328A000CEBCC1 /* UpDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpDownButton.h; sourceTree = "<group>"; };
+		3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpDownButton.m; sourceTree = "<group>"; };
 		744CEC635BE57811D13000AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		923B92FACAC7CDAD945FD076 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E56ECB8BD6A6B1D9696C6264 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,11 +121,20 @@
 		3D0D5D5C1C492D9E004D682A /* Aria2Downloader */ = {
 			isa = PBXGroup;
 			children = (
-				3D30C4111C493140007234CF /* TaskTableViewCell.h */,
-				3D30C4121C493140007234CF /* TaskTableViewCell.m */,
+				3D6A8BF01C88954F008B1277 /* Category */,
+				3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */,
+				3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */,
 				3D30C4041C492FC7007234CF /* DownloadTableViewController.h */,
 				3D30C4051C492FC7007234CF /* DownloadTableViewController.m */,
-				3D30C4071C492FE0007234CF /* Main.storyboard */,
+				3D6A8BF41C89DD29008B1277 /* ButtonTabBar.h */,
+				3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */,
+				3DE7613B1C9328A000CEBCC1 /* UpDownButton.h */,
+				3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */,
+				3D6A8BF71C89E4FF008B1277 /* AriaTabBarController.h */,
+				3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */,
+				3D1B28BA1C8C841E00F07D4D /* NewTaskViewController.h */,
+				3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */,
+				3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */,
 				3D30C3F91C492FB2007234CF /* aria2 */,
 				3D0D5D601C492E36004D682A /* Supporting Files */,
 			);
@@ -120,7 +148,6 @@
 				3D30C3F81C492F8D007234CF /* Base.lproj */,
 				3D30C40F1C4930C3007234CF /* main.m */,
 				3D30C40B1C493007007234CF /* Info.plist */,
-				3D30C4091C492FF0007234CF /* LaunchScreen.storyboard */,
 				3D30C3F31C492F5C007234CF /* AppDelegate.h */,
 				3D30C3F41C492F5C007234CF /* AppDelegate.m */,
 			);
@@ -130,6 +157,8 @@
 		3D30C3F81C492F8D007234CF /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */,
+				3D1F22901C4A3A8100A8BE8A /* Main.storyboard */,
 			);
 			name = Base.lproj;
 			path = Aria2Downloader/Base.lproj;
@@ -155,6 +184,8 @@
 				3D30C4001C492FB2007234CF /* Task.m */,
 				3D30C4141C49349E007234CF /* File.h */,
 				3D30C4151C49349E007234CF /* File.m */,
+				3D80A3AF1C91A54E009B630F /* Uri.h */,
+				3D80A3B01C91A54E009B630F /* Uri.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +228,16 @@
 				3D51ACB11C46A43000D39FA4 /* Info.plist */,
 			);
 			path = Aria2DownloaderUITests;
+			sourceTree = "<group>";
+		};
+		3D6A8BF01C88954F008B1277 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3D6A8BF11C88954F008B1277 /* UIView+extension.h */,
+				3D6A8BF21C88954F008B1277 /* UIView+extension.m */,
+			);
+			name = Category;
+			path = Aria2Downloader/Category;
 			sourceTree = "<group>";
 		};
 		78EF3EE12927540D25AA71B1 /* Pods */ = {
@@ -325,10 +366,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D30C40C1C493007007234CF /* Info.plist in Resources */,
-				3D30C40A1C492FF0007234CF /* LaunchScreen.storyboard in Resources */,
+				3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */,
+				3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */,
 				3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */,
-				3D30C4081C492FE0007234CF /* Main.storyboard in Resources */,
+				3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,14 +442,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE7613D1C9328A000CEBCC1 /* UpDownButton.m in Sources */,
 				3D30C4031C492FB2007234CF /* Task.m in Sources */,
 				3D30C4161C49349E007234CF /* File.m in Sources */,
+				3D1B28BC1C8C841E00F07D4D /* NewTaskViewController.m in Sources */,
 				3D30C4011C492FB2007234CF /* Aria2.m in Sources */,
 				3D30C3F51C492F5C007234CF /* AppDelegate.m in Sources */,
-				3D30C4131C493140007234CF /* TaskTableViewCell.m in Sources */,
+				3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */,
+				3D6A8BF61C89DD29008B1277 /* ButtonTabBar.m in Sources */,
 				3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */,
+				3D80A3B11C91A54E009B630F /* Uri.m in Sources */,
 				3D30C4101C4930C3007234CF /* main.m in Sources */,
+				3D6A8BF91C89E4FF008B1277 /* AriaTabBarController.m in Sources */,
 				3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */,
+				3D6A8BF31C88954F008B1277 /* UIView+extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +489,25 @@
 			targetProxy = 3D51ACAC1C46A43000D39FA4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D1F228F1C4A3A8100A8BE8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3D1F22901C4A3A8100A8BE8A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D1F22911C4A3A8100A8BE8A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3D51ACB21C46A43000D39FA4 /* Debug */ = {

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 @class Task;
 
+typedef void (^RestartBlock)(UITableViewCell *);
+
 @interface TaskTableViewCell : UITableViewCell
 
 @property (nonatomic)Task *task;
+@property (nonatomic, strong)RestartBlock restartBlock;
 
 @end

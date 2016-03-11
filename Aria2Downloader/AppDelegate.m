@@ -16,7 +16,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    application.statusBarStyle = UIStatusBarStyleLightContent;
     // Override point for customization after application launch.
+    UINavigationBar *appearance = [UINavigationBar appearance];
+    
+    [appearance setBarTintColor:[UIColor colorWithRed:116.0/255 green:57.0/255 blue:81.0/255 alpha:1.0]];
+    [appearance setTranslucent:NO];
+    
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    [appearance setTitleTextAttributes:attrs];
+    
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
+    [barButtonItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+    [barButtonItem setTintColor:[UIColor whiteColor]];
+    
     return YES;
 }
 

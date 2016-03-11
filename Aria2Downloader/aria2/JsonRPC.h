@@ -10,6 +10,6 @@
 
 @interface JsonRPC : NSObject
 
-+ (void)requestWithMethod:(NSString *)method parameters:(NSString *)parameters success:(void (^)(id response))sucess failure:(void (^)(NSError *error))failure;
++ (void)requestWithMethod:(NSString *)method parameters:(id)parameters success:(void (^)(id response))sucess failure:(void (^)(NSError *error))failure;
 
 @end

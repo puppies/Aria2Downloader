@@ -10,6 +10,15 @@
 
 @interface Aria2 : NSObject
 
-+ (void)tellActiveWithSuccess:(void (^)(id response))sucess failure:(void (^)(NSError *error))failure;
++ (void)addUri:(NSString *)urlString success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)removeWithGID:(NSString *)gid success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)pauseWithGID:(NSString *)gid success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)pauseAllWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)unpauseWithGID:(NSString *)gid success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)unpauseAllWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)tellStatusWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)tellActiveWithSuccess:(void (^)(id))sucess failure:(void (^)(NSError *))failure;
++ (void)tellWaitingWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)tellStoppedWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
 @end

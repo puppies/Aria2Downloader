@@ -7,7 +7,14 @@
 //
 
 #import "File.h"
+#import "Uri.h"
 
 @implementation File
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    // value should be Class or Class name.
+    return @{@"uris" : [Uri class]
+             };
+}
 
 @end

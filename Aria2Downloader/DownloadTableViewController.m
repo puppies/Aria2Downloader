@@ -10,10 +10,13 @@
 #import "Aria2.h"
 #import "Task.h"
 #import "TaskTableViewCell.h"
+#import "NewTaskViewController.h"
 
 @interface DownloadTableViewController ()
 
 @property (nonatomic)NSArray *activeTasks;
+@property (nonatomic)NSArray *otherTasks;
+
 @property (nonatomic)NSTimer *timer;
 
 @end
@@ -24,6 +27,8 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[TaskTableViewCell class] forCellReuseIdentifier:@"taskCell"];
+    
+    self.tableView.rowHeight = 72;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,7 +46,17 @@
 
     [Aria2 tellActiveWithSuccess:^(id response) {
         self.activeTasks = (NSArray *)response;
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+    [Aria2 tellStoppedWithSuccess:^(id response) {
+        self.otherTasks = (NSArray *)response;
+//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadData];
+
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
@@ -55,12 +70,16 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.activeTasks.count;
+    NSLog(@"%lu", (unsigned long)self.activeTasks.count);
+    if (section) {
+        return self.otherTasks.count;
+    } else {
+        return self.activeTasks.count;
+    }
 }
 
 
@@ -68,12 +87,58 @@
     TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"taskCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Task *task = self.activeTasks[indexPath.row];
+    Task *task;
+    if (indexPath.section) {
+        task = self.otherTasks[indexPath.row];
+        
+        cell.restartBlock = ^(UITableViewCell *cell) {
+            NSIndexPath *path = [self.tableView indexPathForCell:cell];
+            NewTaskViewController *newTaskVC = [[NewTaskViewController alloc] init];
+            newTaskVC.task = self.otherTasks[path.row];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:newTaskVC];
+            [self presentViewController:nvc animated:YES completion:nil];
+        };
+        
+    } else {
+        task = self.activeTasks[indexPath.row];
+        
+    }
     cell.task = task;
-    
+
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section) {
+        return @"其它";
+    } else {
+        return @"下载中";
+    }
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return @"Remove";
+//}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 54;
+//}
 
 /*
 // Override to support conditional editing of the table view.
