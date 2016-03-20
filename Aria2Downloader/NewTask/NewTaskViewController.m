@@ -27,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     self.urlTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.urlTextView.layer.borderWidth = 0.6;
     self.urlTextView.layer.cornerRadius = 6.0;

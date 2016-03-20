@@ -21,10 +21,10 @@
     application.statusBarStyle = UIStatusBarStyleLightContent;
     // Override point for customization after application launch.
     UINavigationBar *appearance = [UINavigationBar appearance];
-    
+
     [appearance setBarTintColor:[UIColor colorWithRed:116.0/255 green:57.0/255 blue:81.0/255 alpha:1.0]];
-    [appearance setTranslucent:NO];
-    
+//    [appearance setTranslucent:NO];
+
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
     [appearance setTitleTextAttributes:attrs];
@@ -58,5 +58,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+//    if (self.allowLandscape) {
+//        return UIInterfaceOrientationMaskLandscape;
+//    } else {
+//        return UIInterfaceOrientationMaskPortrait;
+//    }
+//}
 
 @end

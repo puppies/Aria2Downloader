@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D018C611C982C3100063304 /* libmupnpiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D94B9E31C967FE300B83AC2 /* libmupnpiOS.a */; };
+		3D018C621C983C4B00063304 /* mUPnP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D94B9D91C967F4100B83AC2 /* mUPnP.framework */; };
+		3D018C631C983C4B00063304 /* mUPnP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D94B9D91C967F4100B83AC2 /* mUPnP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D1B28BC1C8C841E00F07D4D /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */; };
 		3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */; };
 		3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */; };
@@ -25,12 +28,25 @@
 		3D6A8BF31C88954F008B1277 /* UIView+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF21C88954F008B1277 /* UIView+extension.m */; };
 		3D6A8BF61C89DD29008B1277 /* ButtonTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */; };
 		3D6A8BF91C89E4FF008B1277 /* AriaTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */; };
+		3D6F662F1C95CECC002F3F6C /* UpnpDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F662E1C95CECC002F3F6C /* UpnpDeviceTableViewController.m */; };
 		3D80A3B11C91A54E009B630F /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80A3B01C91A54E009B630F /* Uri.m */; };
+		3D94B9E61C96805D00B83AC2 /* mUPnP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D94B9D91C967F4100B83AC2 /* mUPnP.framework */; };
+		3D94B9F21C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94B9F11C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m */; };
+		3D94B9F51C96E3BA00B83AC2 /* DLNAPlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94B9F41C96E3BA00B83AC2 /* DLNAPlaybackViewController.m */; };
 		3DE7613D1C9328A000CEBCC1 /* UpDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */; };
+		3DFD767E1C94572F00FC68B2 /* SegmentNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD767D1C94572F00FC68B2 /* SegmentNavigationController.m */; };
+		3DFD76841C9474B400FC68B2 /* MainScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD76831C9474B400FC68B2 /* MainScrollViewController.m */; };
 		C9514EC2A7255CC1EE704C2D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 744CEC635BE57811D13000AF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3D018C641C983C4B00063304 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D94B9D41C967F4100B83AC2 /* mUPnP.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C9DD3281BF1B65500D222B5;
+			remoteInfo = mUPnP;
+		};
 		3D51ACA11C46A43000D39FA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3D51AC7F1C46A43000D39FA4 /* Project object */;
@@ -45,14 +61,56 @@
 			remoteGlobalIDString = 3D51AC861C46A43000D39FA4;
 			remoteInfo = Aria2Downloader;
 		};
+		3D94B9D81C967F4100B83AC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D94B9D41C967F4100B83AC2 /* mUPnP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C9DD3291BF1B65500D222B5;
+			remoteInfo = mUPnP;
+		};
+		3D94B9DC1C967FAB00B83AC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D94B9D41C967F4100B83AC2 /* mUPnP.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C9DD3281BF1B65500D222B5;
+			remoteInfo = mUPnP;
+		};
+		3D94B9E21C967FE300B83AC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D94B9DE1C967FE300B83AC2 /* mupnpiOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2CFD56E81BF081A800F50EB9;
+			remoteInfo = mupnpiOS;
+		};
+		3D94B9E41C96800000B83AC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D94B9DE1C967FE300B83AC2 /* mupnpiOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CFD56E71BF081A800F50EB9;
+			remoteInfo = mupnpiOS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3D018C661C983C4B00063304 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D018C631C983C4B00063304 /* mUPnP.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3D1B28BA1C8C841E00F07D4D /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskView.xib; sourceTree = "<group>"; };
-		3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskTableViewCell.h; path = Aria2Downloader/TaskTableViewCell.h; sourceTree = "<group>"; };
-		3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskTableViewCell.m; path = Aria2Downloader/TaskTableViewCell.m; sourceTree = "<group>"; };
+		3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
 		3D1F228F1C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D1F22911C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		3D30C3F31C492F5C007234CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Aria2Downloader/AppDelegate.h; sourceTree = "<group>"; };
@@ -64,8 +122,8 @@
 		3D30C3FD1C492FB2007234CF /* JsonRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonRPC.m; sourceTree = "<group>"; };
 		3D30C3FF1C492FB2007234CF /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		3D30C4001C492FB2007234CF /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
-		3D30C4041C492FC7007234CF /* DownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadTableViewController.h; path = Aria2Downloader/DownloadTableViewController.h; sourceTree = "<group>"; };
-		3D30C4051C492FC7007234CF /* DownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadTableViewController.m; path = Aria2Downloader/DownloadTableViewController.m; sourceTree = "<group>"; };
+		3D30C4041C492FC7007234CF /* DownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadTableViewController.h; sourceTree = "<group>"; };
+		3D30C4051C492FC7007234CF /* DownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadTableViewController.m; sourceTree = "<group>"; };
 		3D30C40B1C493007007234CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Aria2Downloader/Info.plist; sourceTree = SOURCE_ROOT; };
 		3D30C40F1C4930C3007234CF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Aria2Downloader/main.m; sourceTree = "<group>"; };
 		3D30C4141C49349E007234CF /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -83,10 +141,22 @@
 		3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonTabBar.m; sourceTree = "<group>"; };
 		3D6A8BF71C89E4FF008B1277 /* AriaTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AriaTabBarController.h; sourceTree = "<group>"; };
 		3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AriaTabBarController.m; sourceTree = "<group>"; };
+		3D6F662D1C95CECC002F3F6C /* UpnpDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpnpDeviceTableViewController.h; sourceTree = "<group>"; };
+		3D6F662E1C95CECC002F3F6C /* UpnpDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpnpDeviceTableViewController.m; sourceTree = "<group>"; };
 		3D80A3AF1C91A54E009B630F /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
 		3D80A3B01C91A54E009B630F /* Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uri.m; sourceTree = "<group>"; };
+		3D94B9D41C967F4100B83AC2 /* mUPnP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mUPnP.xcodeproj; path = ../mupnpc/wrapper/objc/iOS/mUPnP/mUPnP.xcodeproj; sourceTree = "<group>"; };
+		3D94B9DE1C967FE300B83AC2 /* mupnpiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mupnpiOS.xcodeproj; path = ../mupnpc/lib/mupnpiOS/mupnpiOS.xcodeproj; sourceTree = "<group>"; };
+		3D94B9F01C96B2BA00B83AC2 /* UpnpServerContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpnpServerContentTableViewController.h; sourceTree = "<group>"; };
+		3D94B9F11C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpnpServerContentTableViewController.m; sourceTree = "<group>"; };
+		3D94B9F31C96E3BA00B83AC2 /* DLNAPlaybackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNAPlaybackViewController.h; sourceTree = "<group>"; };
+		3D94B9F41C96E3BA00B83AC2 /* DLNAPlaybackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNAPlaybackViewController.m; sourceTree = "<group>"; };
 		3DE7613B1C9328A000CEBCC1 /* UpDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpDownButton.h; sourceTree = "<group>"; };
 		3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpDownButton.m; sourceTree = "<group>"; };
+		3DFD767C1C94572F00FC68B2 /* SegmentNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentNavigationController.h; sourceTree = "<group>"; };
+		3DFD767D1C94572F00FC68B2 /* SegmentNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentNavigationController.m; sourceTree = "<group>"; };
+		3DFD76821C9474B400FC68B2 /* MainScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScrollViewController.h; sourceTree = "<group>"; };
+		3DFD76831C9474B400FC68B2 /* MainScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScrollViewController.m; sourceTree = "<group>"; };
 		744CEC635BE57811D13000AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		923B92FACAC7CDAD945FD076 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E56ECB8BD6A6B1D9696C6264 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,7 +167,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D018C611C982C3100063304 /* libmupnpiOS.a in Frameworks */,
+				3D94B9E61C96805D00B83AC2 /* mUPnP.framework in Frameworks */,
 				C9514EC2A7255CC1EE704C2D /* libPods.a in Frameworks */,
+				3D018C621C983C4B00063304 /* mUPnP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,19 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				3D6A8BF01C88954F008B1277 /* Category */,
-				3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */,
-				3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */,
-				3D30C4041C492FC7007234CF /* DownloadTableViewController.h */,
-				3D30C4051C492FC7007234CF /* DownloadTableViewController.m */,
-				3D6A8BF41C89DD29008B1277 /* ButtonTabBar.h */,
-				3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */,
-				3DE7613B1C9328A000CEBCC1 /* UpDownButton.h */,
-				3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */,
-				3D6A8BF71C89E4FF008B1277 /* AriaTabBarController.h */,
-				3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */,
-				3D1B28BA1C8C841E00F07D4D /* NewTaskViewController.h */,
-				3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */,
-				3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */,
+				3DCCBDDD1C9EF3D2002582B6 /* Download */,
+				3DCCBDDE1C9EF413002582B6 /* Upnp */,
+				3DCCBDDF1C9EF453002582B6 /* NewTask */,
+				3DCCBDE01C9EF752002582B6 /* Other */,
 				3D30C3F91C492FB2007234CF /* aria2 */,
 				3D0D5D601C492E36004D682A /* Supporting Files */,
 			);
@@ -147,7 +211,6 @@
 				3D30C3F61C492F7C007234CF /* Assets.xcassets */,
 				3D30C3F81C492F8D007234CF /* Base.lproj */,
 				3D30C40F1C4930C3007234CF /* main.m */,
-				3D30C40B1C493007007234CF /* Info.plist */,
 				3D30C3F31C492F5C007234CF /* AppDelegate.h */,
 				3D30C3F41C492F5C007234CF /* AppDelegate.m */,
 			);
@@ -159,6 +222,7 @@
 			children = (
 				3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */,
 				3D1F22901C4A3A8100A8BE8A /* Main.storyboard */,
+				3D30C40B1C493007007234CF /* Info.plist */,
 			);
 			name = Base.lproj;
 			path = Aria2Downloader/Base.lproj;
@@ -240,6 +304,77 @@
 			path = Aria2Downloader/Category;
 			sourceTree = "<group>";
 		};
+		3D94B9D51C967F4100B83AC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D94B9D91C967F4100B83AC2 /* mUPnP.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D94B9DF1C967FE300B83AC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D94B9E31C967FE300B83AC2 /* libmupnpiOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DCCBDDD1C9EF3D2002582B6 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */,
+				3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */,
+				3D30C4041C492FC7007234CF /* DownloadTableViewController.h */,
+				3D30C4051C492FC7007234CF /* DownloadTableViewController.m */,
+				3DE7613B1C9328A000CEBCC1 /* UpDownButton.h */,
+				3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */,
+			);
+			name = Download;
+			path = Aria2Downloader/Download;
+			sourceTree = "<group>";
+		};
+		3DCCBDDE1C9EF413002582B6 /* Upnp */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F662D1C95CECC002F3F6C /* UpnpDeviceTableViewController.h */,
+				3D6F662E1C95CECC002F3F6C /* UpnpDeviceTableViewController.m */,
+				3D94B9F01C96B2BA00B83AC2 /* UpnpServerContentTableViewController.h */,
+				3D94B9F11C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m */,
+				3D94B9F31C96E3BA00B83AC2 /* DLNAPlaybackViewController.h */,
+				3D94B9F41C96E3BA00B83AC2 /* DLNAPlaybackViewController.m */,
+			);
+			name = Upnp;
+			path = Aria2Downloader/Upnp;
+			sourceTree = "<group>";
+		};
+		3DCCBDDF1C9EF453002582B6 /* NewTask */ = {
+			isa = PBXGroup;
+			children = (
+				3D1B28BA1C8C841E00F07D4D /* NewTaskViewController.h */,
+				3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */,
+				3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */,
+			);
+			name = NewTask;
+			path = Aria2Downloader/NewTask;
+			sourceTree = "<group>";
+		};
+		3DCCBDE01C9EF752002582B6 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				3DFD767D1C94572F00FC68B2 /* SegmentNavigationController.m */,
+				3DFD767C1C94572F00FC68B2 /* SegmentNavigationController.h */,
+				3DFD76821C9474B400FC68B2 /* MainScrollViewController.h */,
+				3DFD76831C9474B400FC68B2 /* MainScrollViewController.m */,
+				3D6A8BF41C89DD29008B1277 /* ButtonTabBar.h */,
+				3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */,
+				3D6A8BF71C89E4FF008B1277 /* AriaTabBarController.h */,
+				3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */,
+			);
+			name = Other;
+			path = Aria2Downloader/Other;
+			sourceTree = "<group>";
+		};
 		78EF3EE12927540D25AA71B1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +387,8 @@
 		81BE53EED3AA1AED31517AF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D94B9DE1C967FE300B83AC2 /* mupnpiOS.xcodeproj */,
+				3D94B9D41C967F4100B83AC2 /* mUPnP.xcodeproj */,
 				744CEC635BE57811D13000AF /* libPods.a */,
 			);
 			name = Frameworks;
@@ -270,10 +407,14 @@
 				3D51AC851C46A43000D39FA4 /* Resources */,
 				DA3E7C42CB9D28727CC38B55 /* Embed Pods Frameworks */,
 				11A62926C250B2C2DBE7C0DF /* Copy Pods Resources */,
+				3D018C661C983C4B00063304 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3D94B9E51C96800000B83AC2 /* PBXTargetDependency */,
+				3D94B9DD1C967FAB00B83AC2 /* PBXTargetDependency */,
+				3D018C651C983C4B00063304 /* PBXTargetDependency */,
 			);
 			name = Aria2Downloader;
 			productName = Aria2Downloader;
@@ -352,6 +493,16 @@
 			mainGroup = 3D51AC7E1C46A43000D39FA4;
 			productRefGroup = 3D51AC881C46A43000D39FA4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3D94B9D51C967F4100B83AC2 /* Products */;
+					ProjectRef = 3D94B9D41C967F4100B83AC2 /* mUPnP.xcodeproj */;
+				},
+				{
+					ProductGroup = 3D94B9DF1C967FE300B83AC2 /* Products */;
+					ProjectRef = 3D94B9DE1C967FE300B83AC2 /* mupnpiOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3D51AC861C46A43000D39FA4 /* Aria2Downloader */,
@@ -360,6 +511,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3D94B9D91C967F4100B83AC2 /* mUPnP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = mUPnP.framework;
+			remoteRef = 3D94B9D81C967F4100B83AC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D94B9E31C967FE300B83AC2 /* libmupnpiOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libmupnpiOS.a;
+			remoteRef = 3D94B9E21C967FE300B83AC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3D51AC851C46A43000D39FA4 /* Resources */ = {
@@ -442,13 +610,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6F662F1C95CECC002F3F6C /* UpnpDeviceTableViewController.m in Sources */,
 				3DE7613D1C9328A000CEBCC1 /* UpDownButton.m in Sources */,
 				3D30C4031C492FB2007234CF /* Task.m in Sources */,
+				3D94B9F21C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m in Sources */,
 				3D30C4161C49349E007234CF /* File.m in Sources */,
 				3D1B28BC1C8C841E00F07D4D /* NewTaskViewController.m in Sources */,
 				3D30C4011C492FB2007234CF /* Aria2.m in Sources */,
 				3D30C3F51C492F5C007234CF /* AppDelegate.m in Sources */,
 				3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */,
+				3D94B9F51C96E3BA00B83AC2 /* DLNAPlaybackViewController.m in Sources */,
+				3DFD767E1C94572F00FC68B2 /* SegmentNavigationController.m in Sources */,
+				3DFD76841C9474B400FC68B2 /* MainScrollViewController.m in Sources */,
 				3D6A8BF61C89DD29008B1277 /* ButtonTabBar.m in Sources */,
 				3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */,
 				3D80A3B11C91A54E009B630F /* Uri.m in Sources */,
@@ -478,6 +651,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3D018C651C983C4B00063304 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mUPnP;
+			targetProxy = 3D018C641C983C4B00063304 /* PBXContainerItemProxy */;
+		};
 		3D51ACA21C46A43000D39FA4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3D51AC861C46A43000D39FA4 /* Aria2Downloader */;
@@ -487,6 +665,16 @@
 			isa = PBXTargetDependency;
 			target = 3D51AC861C46A43000D39FA4 /* Aria2Downloader */;
 			targetProxy = 3D51ACAC1C46A43000D39FA4 /* PBXContainerItemProxy */;
+		};
+		3D94B9DD1C967FAB00B83AC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mUPnP;
+			targetProxy = 3D94B9DC1C967FAB00B83AC2 /* PBXContainerItemProxy */;
+		};
+		3D94B9E51C96800000B83AC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mupnpiOS;
+			targetProxy = 3D94B9E41C96800000B83AC2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -596,10 +784,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aria2Downloader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.happy.Aria2Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/** ~/Developer/mupnpc/**";
 			};
 			name = Debug;
 		};
@@ -609,10 +798,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aria2Downloader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.happy.Aria2Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/** ~/Developer/mupnpc/**";
 			};
 			name = Release;
 		};

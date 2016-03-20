@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EC7820721010D1C36CE27D766309F11D2B06ED1A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AE6D226BCEBD39B0EC05A03BAD902EFE4FADDBD0" : 0,
+    "EC7820721010D1C36CE27D766309F11D2B06ED1A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5EB48538-86BE-4280-83A9-97B4AAEF7ECD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AE6D226BCEBD39B0EC05A03BAD902EFE4FADDBD0" : "mupnpc\/",
+    "EC7820721010D1C36CE27D766309F11D2B06ED1A" : "Aria2Downloader\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Aria2Downloader",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Aria2Downloader.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jink2005\/mupnpc.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AE6D226BCEBD39B0EC05A03BAD902EFE4FADDBD0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/puppies\/Aria2Downloader.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EC7820721010D1C36CE27D766309F11D2B06ED1A"
+    }
+  ]
+}

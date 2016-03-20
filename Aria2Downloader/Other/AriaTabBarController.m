@@ -9,6 +9,7 @@
 #import "AriaTabBarController.h"
 #import "ButtonTabBar.h"
 #import "NewTaskViewController.h"
+#import "MainScrollViewController.h"
 
 @interface AriaTabBarController ()
 

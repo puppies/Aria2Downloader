@@ -11,6 +11,7 @@
 #import "Task.h"
 #import "TaskTableViewCell.h"
 #import "NewTaskViewController.h"
+#import "UIView+extension.h"
 
 @interface DownloadTableViewController ()
 
@@ -29,6 +30,18 @@
     [self.tableView registerClass:[TaskTableViewCell class] forCellReuseIdentifier:@"taskCell"];
     
     self.tableView.rowHeight = 72;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    
+//    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"下载", @"电影库"]];
+    
+//    segmentControl.tintColor = [UIColor clearColor];
+    
+//    NSDictionary *normalAttrs = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+//    [segmentControl setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    
+//    self.navigationItem.titleView = segmentControl;
+//    [self.navigationItem.titleView sizeToFit];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

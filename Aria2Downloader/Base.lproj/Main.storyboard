@@ -24,40 +24,40 @@
             <point key="canvasLocation" x="-517" y="64"/>
         </scene>
         <!--下载-->
-        <scene sceneID="rqN-Zh-wmP">
-            <objects>
-                <tableViewController id="nIo-XZ-hKg" customClass="DownloadTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y5t-CR-a8Z">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="nIo-XZ-hKg" id="xSE-Mz-7Qo"/>
-                            <outlet property="delegate" destination="nIo-XZ-hKg" id="1k0-dn-g2Z"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="下载" id="Wdq-pa-4qd"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hLy-et-fM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="940" y="-224"/>
-        </scene>
-        <!--下载-->
         <scene sceneID="lEu-GF-JcW">
             <objects>
-                <navigationController id="qDh-az-XX7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qDh-az-XX7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="下载" image="clouddownloadoutline" selectedImage="clouddownload" id="FbV-JY-Lye"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xgs-ca-iFS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="nIo-XZ-hKg" kind="relationship" relationship="rootViewController" id="ftY-aL-207"/>
+                        <segue destination="dXV-oR-3zz" kind="relationship" relationship="rootViewController" id="BgA-kf-qtz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6H-D8-Xg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="231" y="-224"/>
+        </scene>
+        <!--Main Scroll View Controller-->
+        <scene sceneID="4eT-sJ-7wO">
+            <objects>
+                <viewController id="dXV-oR-3zz" customClass="MainScrollViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X2g-wL-WNj"/>
+                        <viewControllerLayoutGuide type="bottom" id="ogv-FA-x8x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J6o-3e-dVa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hbr-2E-LbI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4z-o9-825" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="-224"/>
         </scene>
         <!--设置-->
         <scene sceneID="tL8-y5-nLX">
