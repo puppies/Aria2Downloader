@@ -8,13 +8,13 @@
 
 #import "Task.h"
 #import "YYModel.h"
-#import "File.h"
+#import "DFile.h"
 
 @implementation Task
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     // value should be Class or Class name.
-    return @{@"files" : [File class]
+    return @{@"files" : [DFile class]
             };
 }
 

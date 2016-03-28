@@ -6,10 +6,10 @@
 //  Copyright © 2016年 happy. All rights reserved.
 //
 
-#import "File.h"
+#import "DFile.h"
 #import "Uri.h"
 
-@implementation File
+@implementation DFile
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     // value should be Class or Class name.

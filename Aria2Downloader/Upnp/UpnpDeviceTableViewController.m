@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"DLNA";
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -33,7 +35,9 @@
     
     CGUpnpAvController *avController = [[CGUpnpAvController alloc] init];
     avController.delegate = self;
-    [avController search];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        [avController search];
+    });
     
 //    CGUpnpControlPoint *cp = [[CGUpnpControlPoint alloc] init];
 //    cp.delegate = self;
@@ -87,6 +91,7 @@
 //    UpnpServerContentTableViewController *contentController = [[UpnpServerContentTableViewController alloc] initWithAvServer:self.servers[indexPath.row] atIndexPath:indexPath objectId:@"0"];
     UpnpServerContentTableViewController *contentController = [[UpnpServerContentTableViewController alloc] initWithAvServer:self.servers[indexPath.row] atIndexPath:indexPath objectId:@"0"];
 
+    contentController.title = [self.servers[indexPath.row] friendlyName];
     
     [self.navigationController pushViewController:contentController animated:YES];
 }
@@ -105,5 +110,9 @@
     
     [self.tableView reloadData];
 }
+
+//- (BOOL)shouldAutorotate {
+//    return NO;
+//}
 
 @end

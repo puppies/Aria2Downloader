@@ -9,7 +9,7 @@
 #import "NewTaskViewController.h"
 #import "Aria2.h"
 #import "Task.h"
-#import "File.h"
+#import "DFile.h"
 #import "Uri.h"
 
 @interface NewTaskViewController ()
@@ -43,7 +43,7 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(textChanged) name:UITextViewTextDidChangeNotification object:self.urlTextView];
     
-    File *file = self.task.files[0];
+    DFile *file = self.task.files[0];
     if (file.uris.count) {
         Uri *uri0 = file.uris[0];
         self.urlTextView.text = uri0.uri;

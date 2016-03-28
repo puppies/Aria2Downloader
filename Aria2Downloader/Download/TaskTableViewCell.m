@@ -8,7 +8,7 @@
 
 #import "TaskTableViewCell.h"
 #import "Task.h"
-#import "File.h"
+#import "DFile.h"
 #import "Uri.h"
 #import "UIView+extension.h"
 #import "UpDownButton.h"
@@ -130,7 +130,7 @@
 - (void)setTask:(Task *)task {
     _task = task;
     
-    File *file = task.files[0];
+    DFile *file = task.files[0];
     NSMutableString *fileName = [file.path mutableCopy];
 //    [fileName replaceOccurrencesOfString:task.dir withString:@"" options:NSLiteralSearch range:NSMakeRange(0, fileName.length)];
 //    NSLog(@"%@ , %lu", task.dir, (unsigned long)task.dir.length);

@@ -32,6 +32,7 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"contentCell"];
     
+//    self.title = self.server.friendlyName;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -76,7 +77,7 @@
         CGUpnpAvResource *resource = item.resource;
         NSLog(@"item: %@, resource: %@, url:%@", item.title, resource.protocolInfo, item.resourceUrl);
         
-        self.navigationItem.backBarButtonItem.title = item.title;
+//        self.title = item.title;
         
         DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
         playbackViewController.item = item;
@@ -86,9 +87,21 @@
     } else {
         UpnpServerContentTableViewController *contentController = [[UpnpServerContentTableViewController alloc] initWithAvServer:self.server atIndexPath:indexPath objectId:object.objectId];
         
+        contentController.title = object.title;
+        
         [self.navigationController pushViewController:contentController animated:YES];
     }
 }
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    return UIInterfaceOrientationPortrait;
+//}
 
 @end

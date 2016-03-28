@@ -12,6 +12,8 @@
 #import "TaskTableViewCell.h"
 #import "NewTaskViewController.h"
 #import "UIView+extension.h"
+#import "SiderViewController.h"
+#import "ContainerViewController.h"
 
 @interface DownloadTableViewController ()
 
@@ -26,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"下载";
     
     [self.tableView registerClass:[TaskTableViewCell class] forCellReuseIdentifier:@"taskCell"];
     
@@ -42,6 +46,8 @@
     
 //    self.navigationItem.titleView = segmentControl;
 //    [self.navigationItem.titleView sizeToFit];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:(ContainerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController action:@selector(openSiderView)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -196,5 +202,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//- (BOOL)shouldAutorotate {
+//    return NO;
+//}
+//
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskPortrait;
+//}
+
+//- (void)showSiderView {
+//
+//}
 
 @end

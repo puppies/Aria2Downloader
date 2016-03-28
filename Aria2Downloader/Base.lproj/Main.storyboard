@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qbH-HE-hSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qbH-HE-hSc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Aria Tab Bar Controller-->
@@ -26,43 +26,43 @@
         <!--下载-->
         <scene sceneID="lEu-GF-JcW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qDh-az-XX7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qDh-az-XX7" customClass="SegmentNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="下载" image="clouddownloadoutline" selectedImage="clouddownload" id="FbV-JY-Lye"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xgs-ca-iFS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="dXV-oR-3zz" kind="relationship" relationship="rootViewController" id="BgA-kf-qtz"/>
+                        <segue destination="Qm3-A4-MXG" kind="relationship" relationship="rootViewController" id="uUT-pH-WAY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6H-D8-Xg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="231" y="-224"/>
         </scene>
-        <!--Main Scroll View Controller-->
-        <scene sceneID="4eT-sJ-7wO">
+        <!--View Controller-->
+        <scene sceneID="Kn7-P8-I9j">
             <objects>
-                <viewController id="dXV-oR-3zz" customClass="MainScrollViewController" sceneMemberID="viewController">
+                <viewController id="Qm3-A4-MXG" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X2g-wL-WNj"/>
-                        <viewControllerLayoutGuide type="bottom" id="ogv-FA-x8x"/>
+                        <viewControllerLayoutGuide type="top" id="MvV-a5-3Ww"/>
+                        <viewControllerLayoutGuide type="bottom" id="uRn-De-v02"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="J6o-3e-dVa">
+                    <view key="view" contentMode="scaleToFill" id="rgo-wV-Qk6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hbr-2E-LbI"/>
+                    <navigationItem key="navigationItem" id="kSS-ef-RQg"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O4z-o9-825" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3iQ-xW-bU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="-224"/>
+            <point key="canvasLocation" x="1001" y="-224"/>
         </scene>
-        <!--设置-->
+        <!--DLNA-->
         <scene sceneID="tL8-y5-nLX">
             <objects>
-                <tableViewController id="aPm-mU-WGY" sceneMemberID="viewController">
+                <tableViewController id="aPm-mU-WGY" customClass="UpnpDeviceTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z1s-ic-ust">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,17 +72,17 @@
                             <outlet property="delegate" destination="aPm-mU-WGY" id="Yjn-HO-yYc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="设置" id="Rgd-qc-AfR"/>
+                    <navigationItem key="navigationItem" title="DLNA" id="Rgd-qc-AfR"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqR-uX-8R5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="940" y="460"/>
         </scene>
-        <!--设置-->
+        <!--DLNA-->
         <scene sceneID="FOK-FC-K2h">
             <objects>
-                <navigationController id="R5C-m3-Vau" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="cogoutline" selectedImage="cog" id="vSe-vW-tdV"/>
+                <navigationController id="R5C-m3-Vau" customClass="SegmentNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="DLNA" image="cogoutline" selectedImage="cog" id="vSe-vW-tdV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n3g-YX-WFX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
