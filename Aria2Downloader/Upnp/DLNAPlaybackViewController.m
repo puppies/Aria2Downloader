@@ -10,9 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "mUPnP.h"
 #import "UIView+extension.h"
-#import "avformat.h"
-#import "imgutils.h"
-#import "swscale.h"
 
 @interface DLNAPlaybackViewController ()
 
@@ -50,82 +47,6 @@
     [title sizeToFit];
     title.textColor = [UIColor whiteColor];
     self.navigationItem.titleView = title;
-    
-    AVFormatContext *pFormatCtx = NULL;
-//    pFormatCtx = avformat_alloc_context();
-    
-    const char *url = "http://192.168.1.1:49152/web/2406.mp4";
-    
-    av_register_all();
-    avformat_network_init();
-    
-    avformat_open_input(&pFormatCtx, url, NULL, NULL);
-    avformat_find_stream_info(pFormatCtx, NULL);
-    
-    av_dump_format(pFormatCtx, 0, url, 0);
-    
-    AVCodecContext *pCodecCtx = NULL;
-    int i;
-    int videoStream = -1;
-    for (i = 0; i < pFormatCtx->nb_streams; i++) {
-        if (pFormatCtx->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO) {
-            videoStream = i;
-        }
-    }
-    
-    if (videoStream == -1) {
-        return;
-    }
-    
-    pCodecCtx = pFormatCtx->streams[videoStream]->codec;
-    
-    /* find the decoder */
-    AVCodec *pCodec = NULL;
-    pCodec = avcodec_find_decoder(pCodecCtx->codec_id);
-    if (!pCodec) {
-        return;
-    }
-    
-//    AVDictionary *opts;
-//    opts = filter_codec_opts(
-    if (avcodec_open2(pCodecCtx, pCodec, NULL) < 0) {
-        return;
-    }
-    
-    AVFrame *pFrame = NULL;
-    pFrame = av_frame_alloc();
-    AVFrame *pFrameRGB = av_frame_alloc();
-    
-    int numBytes = av_image_get_buffer_size(AV_PIX_FMT_RGB24, pCodecCtx->width, pCodecCtx->height, 1);
-    uint8_t *buffer = (uint8_t *)av_malloc(numBytes * sizeof(uint8_t));
-    av_image_fill_arrays(pFrameRGB->data, pFrameRGB->linesize, buffer, AV_PIX_FMT_RGB24, pCodecCtx->width, pCodecCtx->height, 1);
-    
-    struct SwsContext *swsCtx = NULL;
-    swsCtx = sws_getContext(pCodecCtx->width,
-                            pCodecCtx->height,
-                            pCodecCtx->pix_fmt,
-                            pCodecCtx->width,
-                            pCodecCtx->height,
-                            AV_PIX_FMT_RGB24,
-                            SWS_BILINEAR,
-                            NULL,
-                            NULL,
-                            NULL);
-    AVPacket packet;
-    int frameFinished = 0;
-    while (av_read_frame(pFormatCtx, &packet)>=0) {
-        if (packet.stream_index == videoStream) {
-            avcodec_decode_video2(pCodecCtx, pFrame, &frameFinished, &packet);
-        }
-        if (frameFinished) {
-            /* convert the image from the native format to RGB24 */
-            sws_scale(swsCtx, (const uint8_t * const *)pFrame->data, pFrame->linesize, 0, pCodecCtx->height, pFrameRGB->data, pFrameRGB->linesize);
-            
-            /* do something like "show the image" etc */
-        }
-        /* free packet.data */
-        av_packet_unref(&packet);
-    }
 }
 
 //- (void)viewDidLayoutSubviews {
@@ -155,6 +76,11 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
+    
+    self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarHidden = NO;
+
 }
 
 //- (void)viewWillDisappear:(BOOL)animated {

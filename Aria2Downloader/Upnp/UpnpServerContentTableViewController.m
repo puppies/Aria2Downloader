@@ -9,7 +9,6 @@
 #import "UpnpServerContentTableViewController.h"
 #import "mUPnP/mUPnP.h"
 #import "DLNAPlaybackViewController.h"
-#import "KxMovieViewController.h"
 
 @interface UpnpServerContentTableViewController ()
 
@@ -80,13 +79,11 @@
         
         self.title = item.title;
         
-        KxMovieViewController *movieController = [KxMovieViewController movieViewControllerWithContentPath:resource.url parameters:nil];
-        [self presentViewController:movieController animated:YES completion:nil];
         
-//        DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
-//        playbackViewController.item = item;
-//
-//        [self.navigationController pushViewController:playbackViewController animated:YES];
+        DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
+        playbackViewController.item = item;
+
+        [self.navigationController pushViewController:playbackViewController animated:YES];
         
     } else {
         UpnpServerContentTableViewController *contentController = [[UpnpServerContentTableViewController alloc] initWithAvServer:self.server atIndexPath:indexPath objectId:object.objectId];
