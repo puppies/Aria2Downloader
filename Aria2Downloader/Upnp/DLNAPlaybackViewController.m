@@ -111,7 +111,6 @@
                             NULL,
                             NULL,
                             NULL);
-    
     AVPacket packet;
     int frameFinished = 0;
     while (av_read_frame(pFormatCtx, &packet)>=0) {

@@ -13,6 +13,11 @@
 		3D1B28BC1C8C841E00F07D4D /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B28BB1C8C841E00F07D4D /* NewTaskViewController.m */; };
 		3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */; };
 		3D1D63FE1CA8EF3C00E3F40E /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D63FD1CA8EF3C00E3F40E /* ContainerViewController.m */; };
+		3D1D64121CAC21C600E3F40E /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D64081CAC21C600E3F40E /* KxAudioManager.m */; };
+		3D1D64131CAC21C600E3F40E /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3D1D640B1CAC21C600E3F40E /* kxmovie.bundle */; };
+		3D1D64141CAC21C600E3F40E /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D640D1CAC21C600E3F40E /* KxMovieDecoder.m */; };
+		3D1D64151CAC21C600E3F40E /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D640F1CAC21C600E3F40E /* KxMovieGLView.m */; };
+		3D1D64161CAC21C600E3F40E /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D64111CAC21C600E3F40E /* KxMovieViewController.m */; };
 		3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */; };
 		3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */; };
 		3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F22901C4A3A8100A8BE8A /* Main.storyboard */; };
@@ -124,6 +129,17 @@
 		3D1B28BD1C8D835300F07D4D /* NewTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskView.xib; sourceTree = "<group>"; };
 		3D1D63FC1CA8EF3C00E3F40E /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		3D1D63FD1CA8EF3C00E3F40E /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
+		3D1D64071CAC21C600E3F40E /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
+		3D1D64081CAC21C600E3F40E /* KxAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxAudioManager.m; sourceTree = "<group>"; };
+		3D1D64091CAC21C600E3F40E /* KxLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxLogger.h; sourceTree = "<group>"; };
+		3D1D640A1CAC21C600E3F40E /* kxmovie-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "kxmovie-Prefix.pch"; sourceTree = "<group>"; };
+		3D1D640B1CAC21C600E3F40E /* kxmovie.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = kxmovie.bundle; sourceTree = "<group>"; };
+		3D1D640C1CAC21C600E3F40E /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
+		3D1D640D1CAC21C600E3F40E /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieDecoder.m; sourceTree = "<group>"; };
+		3D1D640E1CAC21C600E3F40E /* KxMovieGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieGLView.h; sourceTree = "<group>"; };
+		3D1D640F1CAC21C600E3F40E /* KxMovieGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieGLView.m; sourceTree = "<group>"; };
+		3D1D64101CAC21C600E3F40E /* KxMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieViewController.h; sourceTree = "<group>"; };
+		3D1D64111CAC21C600E3F40E /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieViewController.m; sourceTree = "<group>"; };
 		3D1F228B1C4A3A6500A8BE8A /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
 		3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
 		3D1F228F1C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -330,6 +346,7 @@
 		3D0D5D5C1C492D9E004D682A /* Aria2Downloader */ = {
 			isa = PBXGroup;
 			children = (
+				3D1D64061CAC21C600E3F40E /* kxmovie */,
 				3D8211871CA1A7BC00A7032A /* FFmepeg-iOS */,
 				3D6A8BF01C88954F008B1277 /* Category */,
 				3DCCBDDD1C9EF3D2002582B6 /* Download */,
@@ -352,6 +369,25 @@
 				3D30C3F41C492F5C007234CF /* AppDelegate.mm */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D1D64061CAC21C600E3F40E /* kxmovie */ = {
+			isa = PBXGroup;
+			children = (
+				3D1D64071CAC21C600E3F40E /* KxAudioManager.h */,
+				3D1D64081CAC21C600E3F40E /* KxAudioManager.m */,
+				3D1D64091CAC21C600E3F40E /* KxLogger.h */,
+				3D1D640A1CAC21C600E3F40E /* kxmovie-Prefix.pch */,
+				3D1D640B1CAC21C600E3F40E /* kxmovie.bundle */,
+				3D1D640C1CAC21C600E3F40E /* KxMovieDecoder.h */,
+				3D1D640D1CAC21C600E3F40E /* KxMovieDecoder.m */,
+				3D1D640E1CAC21C600E3F40E /* KxMovieGLView.h */,
+				3D1D640F1CAC21C600E3F40E /* KxMovieGLView.m */,
+				3D1D64101CAC21C600E3F40E /* KxMovieViewController.h */,
+				3D1D64111CAC21C600E3F40E /* KxMovieViewController.m */,
+			);
+			name = kxmovie;
+			path = Aria2Downloader/kxmovie;
 			sourceTree = "<group>";
 		};
 		3D30C3F81C492F8D007234CF /* Base.lproj */ = {
@@ -864,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */,
+				3D1D64131CAC21C600E3F40E /* kxmovie.bundle in Resources */,
 				3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */,
 				3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */,
 				3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */,
@@ -946,13 +983,17 @@
 				3D94B9F21C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m in Sources */,
 				3D30C4161C49349E007234CF /* File.m in Sources */,
 				3D1B28BC1C8C841E00F07D4D /* NewTaskViewController.m in Sources */,
+				3D1D64121CAC21C600E3F40E /* KxAudioManager.m in Sources */,
 				3D30C4011C492FB2007234CF /* Aria2.m in Sources */,
 				3D30C3F51C492F5C007234CF /* AppDelegate.mm in Sources */,
 				3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */,
+				3D1D64151CAC21C600E3F40E /* KxMovieGLView.m in Sources */,
+				3D1D64141CAC21C600E3F40E /* KxMovieDecoder.m in Sources */,
 				3D94B9F51C96E3BA00B83AC2 /* DLNAPlaybackViewController.m in Sources */,
 				3DFD767E1C94572F00FC68B2 /* SegmentNavigationController.m in Sources */,
 				3DFD76841C9474B400FC68B2 /* MainScrollViewController.m in Sources */,
 				3D6A8BF61C89DD29008B1277 /* ButtonTabBar.m in Sources */,
+				3D1D64161CAC21C600E3F40E /* KxMovieViewController.m in Sources */,
 				3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */,
 				3D80A3B11C91A54E009B630F /* Uri.m in Sources */,
 				3DD605311CA6595F00CCA6FA /* SiderViewController.m in Sources */,
