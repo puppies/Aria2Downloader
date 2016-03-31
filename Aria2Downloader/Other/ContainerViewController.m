@@ -32,12 +32,14 @@
     settingViewController.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:settingViewController];
     [self.view addSubview:settingViewController.view];
+    [settingViewController didMoveToParentViewController:self];
     self.settingViewController = settingViewController;
 
     AriaTabBarController *tabBarController = [[AriaTabBarController alloc] init];
     
     [self addChildViewController:tabBarController];
     [self.view addSubview:tabBarController.view];
+    [tabBarController didMoveToParentViewController:self];
     self.tabBarController = tabBarController;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSiderView)];

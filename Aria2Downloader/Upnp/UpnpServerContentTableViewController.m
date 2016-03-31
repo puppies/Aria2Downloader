@@ -83,7 +83,7 @@
         DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
         playbackViewController.item = item;
 
-        [self.navigationController pushViewController:playbackViewController animated:YES];
+        [self presentViewController:playbackViewController animated:YES completion:nil];
         
     } else {
         UpnpServerContentTableViewController *contentController = [[UpnpServerContentTableViewController alloc] initWithAvServer:self.server atIndexPath:indexPath objectId:object.objectId];

@@ -15,6 +15,7 @@
 		3D1F228D1C4A3A6500A8BE8A /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */; };
 		3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */; };
 		3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F22901C4A3A8100A8BE8A /* Main.storyboard */; };
+		3D2035431CAD308200AC4AED /* DLNAPlaybackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2035421CAD308200AC4AED /* DLNAPlaybackView.xib */; };
 		3D30C3F51C492F5C007234CF /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3F41C492F5C007234CF /* AppDelegate.mm */; };
 		3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C3F61C492F7C007234CF /* Assets.xcassets */; };
 		3D30C4011C492FB2007234CF /* Aria2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3FB1C492FB2007234CF /* Aria2.m */; };
@@ -119,6 +120,7 @@
 		3D1F228C1C4A3A6500A8BE8A /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
 		3D1F228F1C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D1F22911C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		3D2035421CAD308200AC4AED /* DLNAPlaybackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLNAPlaybackView.xib; sourceTree = "<group>"; };
 		3D30C3F31C492F5C007234CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Aria2Downloader/AppDelegate.h; sourceTree = "<group>"; };
 		3D30C3F41C492F5C007234CF /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Aria2Downloader/AppDelegate.mm; sourceTree = "<group>"; };
 		3D30C3F61C492F7C007234CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Aria2Downloader/Assets.xcassets; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				3D94B9F11C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m */,
 				3D94B9F31C96E3BA00B83AC2 /* DLNAPlaybackViewController.h */,
 				3D94B9F41C96E3BA00B83AC2 /* DLNAPlaybackViewController.m */,
+				3D2035421CAD308200AC4AED /* DLNAPlaybackView.xib */,
 			);
 			name = Upnp;
 			path = Aria2Downloader/Upnp;
@@ -560,6 +563,7 @@
 				3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */,
 				3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */,
 				3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */,
+				3D2035431CAD308200AC4AED /* DLNAPlaybackView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
