@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="activityIndicatorView" destination="D3a-eS-NZe" id="mU6-fU-VQB"/>
                 <outlet property="bottomToolBar" destination="Kw2-Uv-9U3" id="46d-wq-tXi"/>
+                <outlet property="playBtn" destination="eOK-Gp-3wc" id="yyU-7Z-7x8"/>
                 <outlet property="progressSlider" destination="ckN-uq-uUJ" id="KMU-Zj-HTz"/>
                 <outlet property="timeLeftLabel" destination="Tq3-su-OeR" id="U0L-Oh-w6W"/>
                 <outlet property="timePassedLabel" destination="fDu-YC-1cF" id="4Ur-PQ-bGk"/>
@@ -136,7 +137,7 @@
                         <barButtonItem systemItem="flexibleSpace" id="dbR-3b-w8Z"/>
                         <barButtonItem title="Item" image="playback_prev" id="8xL-8U-7w5"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ZUI-Ir-n7R"/>
-                        <barButtonItem image="playback_pause" id="eOK-Gp-3wc"/>
+                        <barButtonItem image="playback_play" id="eOK-Gp-3wc"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="FCc-7m-XXM"/>
                         <barButtonItem image="playback_next" id="3Uf-4b-ZPS"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="vMb-ue-Rul"/>
@@ -161,7 +162,7 @@
     </objects>
     <resources>
         <image name="playback_next" width="24" height="24"/>
-        <image name="playback_pause" width="32" height="32"/>
+        <image name="playback_play" width="32" height="32"/>
         <image name="playback_prev" width="24" height="24"/>
     </resources>
 </document>

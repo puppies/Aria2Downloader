@@ -26,7 +26,8 @@
 
 @property (nonatomic)UIButton            *infoButton;
 
-@property (nonatomic)UIBarButtonItem     *playBtn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playBtn;
+
 @property (nonatomic)UIBarButtonItem     *pauseBtn;
 @property (nonatomic)UIBarButtonItem     *rewindBtn;
 @property (nonatomic)UIBarButtonItem     *fforwardBtn;
@@ -79,6 +80,10 @@
 //    [self.view addSubview:_bottomToolBar];
     
     [self.activityIndicatorView startAnimating];
+    self.playBtn.target = self;
+    self.playBtn.action = @selector(play);
+    
+    [self.progressSlider addTarget:self action:@selector(seek) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setItem:(CGUpnpAvItem *)item {
@@ -113,18 +118,11 @@
 
 
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"%s", __func__);
-    NSLog(@"%ld", (long)self.player.status);
-
-//    [self.player play];
-
-//    [UIViewController attemptRotationToDeviceOrientation];
-
-    NSLog(@"%@", NSStringFromCGRect(self.view.layer.frame));
-
-}
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    NSLog(@"%s", __func__);
+//    NSLog(@"%ld", (long)self.player.status);
+//}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -133,7 +131,12 @@
     self.tabBarController.tabBar.hidden = NO;
     self.navigationController.navigationBar.hidden = NO;
     [UIApplication sharedApplication].statusBarHidden = NO;
-
+    
+    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+    
+    [self.player removeTimeObserver:self.playerObserver];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated {
@@ -216,6 +219,7 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
         [self.activityIndicatorView stopAnimating];
         
         [self.player play];
+        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
     }
 }
 
@@ -272,4 +276,28 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
     [self.player pause];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)play {
+    if (self.player.rate) {
+        [self.player pause];
+        self.playBtn.image = [UIImage imageNamed:@"playback_play"];
+    } else {
+        [self.player play];
+        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+    }
+}
+
+- (void)seek {
+    CMTime time = CMTimeMake(self.player.currentItem.duration.value * self.progressSlider.value, self.player.currentItem.duration.timescale);
+    [self.player seekToTime:time completionHandler:^(BOOL finished) {
+        if (finished) {
+            [self.player play];
+            self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+        } else {
+            [self.player pause];
+            self.playBtn.image = [UIImage imageNamed:@"playback_play"];
+        }
+    }];
+}
+
 @end
