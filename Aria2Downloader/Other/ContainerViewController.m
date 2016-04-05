@@ -8,13 +8,14 @@
 
 #import "ContainerViewController.h"
 #import "AriaTabBarController.h"
-#import "SiderViewController.h"
+#import "SettingTableViewController.h"
 #import "UIView+extension.h"
 
+const unsigned int SettingViewWidth = 250;
 
 @interface ContainerViewController () <UIGestureRecognizerDelegate>
 
-@property (nonatomic)SiderViewController *settingViewController;
+@property (nonatomic)SettingTableViewController *settingViewController;
 @property (nonatomic)UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic)AriaTabBarController *tabBarController;
 
@@ -25,13 +26,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    SiderViewController *settingViewController = [[SiderViewController alloc] init];
-    settingViewController.view.x = -300;
-    settingViewController.view.y = 0;
-    settingViewController.view.size = CGSizeMake(300, self.view.height);
-    settingViewController.view.backgroundColor = [UIColor redColor];
+    UIStoryboard *settingTableViewStoryBoard = [UIStoryboard storyboardWithName:@"SettingTableViewController" bundle:nil];
+    SettingTableViewController *settingViewController = [settingTableViewStoryBoard instantiateViewControllerWithIdentifier:@"settingTableView"];
+    settingViewController.tableView.x = -SettingViewWidth;
+    settingViewController.tableView.y = 0;
+    settingViewController.tableView.size = CGSizeMake(SettingViewWidth, self.view.height);
+//    settingViewController.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:settingViewController];
-    [self.view addSubview:settingViewController.view];
+    [self.view addSubview:settingViewController.tableView];
     [settingViewController didMoveToParentViewController:self];
     self.settingViewController = settingViewController;
 
@@ -74,14 +76,14 @@
     self.tabBarController.view.userInteractionEnabled = NO;
     [UIView animateWithDuration:0.5 animations:^{
         self.settingViewController.view.x = 0;
-        self.tabBarController.view.x = 300;
+        self.tabBarController.view.x = SettingViewWidth;
     }];
 }
 
 - (void)closeSiderView {
     self.tabBarController.view.userInteractionEnabled = YES;
     [UIView animateWithDuration:0.5 animations:^{
-        self.settingViewController.view.x = -300;
+        self.settingViewController.view.x = -SettingViewWidth;
         self.tabBarController.view.x = 0;
     }];
 }

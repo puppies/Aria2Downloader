@@ -31,7 +31,8 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"deviceCell"];
     
     self.tableView.rowHeight = 72;
-    [self.tableView reloadData];
+    
+//    [self.tableView reloadData];
     
     CGUpnpAvController *avController = [[CGUpnpAvController alloc] init];
     avController.delegate = self;

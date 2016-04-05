@@ -12,7 +12,6 @@
 #import "TaskTableViewCell.h"
 #import "NewTaskViewController.h"
 #import "UIView+extension.h"
-#import "SiderViewController.h"
 #import "ContainerViewController.h"
 
 @interface DownloadTableViewController ()
@@ -34,6 +33,7 @@
     [self.tableView registerClass:[TaskTableViewCell class] forCellReuseIdentifier:@"taskCell"];
     
     self.tableView.rowHeight = 72;
+    self.tableView.backgroundColor = [UIColor clearColor];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
     

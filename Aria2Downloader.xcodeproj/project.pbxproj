@@ -16,6 +16,7 @@
 		3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F228E1C4A3A8100A8BE8A /* LaunchScreen.storyboard */; };
 		3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F22901C4A3A8100A8BE8A /* Main.storyboard */; };
 		3D2035431CAD308200AC4AED /* DLNAPlaybackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2035421CAD308200AC4AED /* DLNAPlaybackView.xib */; };
+		3D20354A1CAECD7700AC4AED /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2035481CAECD7700AC4AED /* SettingTableViewController.m */; };
 		3D30C3F51C492F5C007234CF /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3F41C492F5C007234CF /* AppDelegate.mm */; };
 		3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D30C3F61C492F7C007234CF /* Assets.xcassets */; };
 		3D30C4011C492FB2007234CF /* Aria2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C3FB1C492FB2007234CF /* Aria2.m */; };
@@ -37,8 +38,8 @@
 		3D94B9E61C96805D00B83AC2 /* mUPnP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D94B9D91C967F4100B83AC2 /* mUPnP.framework */; };
 		3D94B9F21C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94B9F11C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m */; };
 		3D94B9F51C96E3BA00B83AC2 /* DLNAPlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94B9F41C96E3BA00B83AC2 /* DLNAPlaybackViewController.m */; };
-		3DD605311CA6595F00CCA6FA /* SiderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD605301CA6595F00CCA6FA /* SiderViewController.m */; };
 		3DE7613D1C9328A000CEBCC1 /* UpDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */; };
+		3DF3B6081CAEDF23008E003F /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B6071CAEDF23008E003F /* SettingTableViewController.storyboard */; };
 		3DFD767E1C94572F00FC68B2 /* SegmentNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD767D1C94572F00FC68B2 /* SegmentNavigationController.m */; };
 		3DFD76841C9474B400FC68B2 /* MainScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD76831C9474B400FC68B2 /* MainScrollViewController.m */; };
 		C9514EC2A7255CC1EE704C2D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 744CEC635BE57811D13000AF /* libPods.a */; };
@@ -121,6 +122,8 @@
 		3D1F228F1C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D1F22911C4A3A8100A8BE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		3D2035421CAD308200AC4AED /* DLNAPlaybackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLNAPlaybackView.xib; sourceTree = "<group>"; };
+		3D2035471CAECD7700AC4AED /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		3D2035481CAECD7700AC4AED /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		3D30C3F31C492F5C007234CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Aria2Downloader/AppDelegate.h; sourceTree = "<group>"; };
 		3D30C3F41C492F5C007234CF /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Aria2Downloader/AppDelegate.mm; sourceTree = "<group>"; };
 		3D30C3F61C492F7C007234CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Aria2Downloader/Assets.xcassets; sourceTree = "<group>"; };
@@ -163,10 +166,9 @@
 		3D94B9F11C96B2BA00B83AC2 /* UpnpServerContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpnpServerContentTableViewController.m; sourceTree = "<group>"; };
 		3D94B9F31C96E3BA00B83AC2 /* DLNAPlaybackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNAPlaybackViewController.h; sourceTree = "<group>"; };
 		3D94B9F41C96E3BA00B83AC2 /* DLNAPlaybackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNAPlaybackViewController.m; sourceTree = "<group>"; };
-		3DD6052F1CA6595F00CCA6FA /* SiderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiderViewController.h; sourceTree = "<group>"; };
-		3DD605301CA6595F00CCA6FA /* SiderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiderViewController.m; sourceTree = "<group>"; };
 		3DE7613B1C9328A000CEBCC1 /* UpDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpDownButton.h; sourceTree = "<group>"; };
 		3DE7613C1C9328A000CEBCC1 /* UpDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpDownButton.m; sourceTree = "<group>"; };
+		3DF3B6071CAEDF23008E003F /* SettingTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingTableViewController.storyboard; sourceTree = "<group>"; };
 		3DFD767C1C94572F00FC68B2 /* SegmentNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentNavigationController.h; sourceTree = "<group>"; };
 		3DFD767D1C94572F00FC68B2 /* SegmentNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentNavigationController.m; sourceTree = "<group>"; };
 		3DFD76821C9474B400FC68B2 /* MainScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScrollViewController.h; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		3D0D5D5C1C492D9E004D682A /* Aria2Downloader */ = {
 			isa = PBXGroup;
 			children = (
+				3D2035461CAECD1000AC4AED /* Setting */,
 				3D6A8BF01C88954F008B1277 /* Category */,
 				3DCCBDDD1C9EF3D2002582B6 /* Download */,
 				3DCCBDDE1C9EF413002582B6 /* Upnp */,
@@ -231,6 +234,17 @@
 				3D30C3F41C492F5C007234CF /* AppDelegate.mm */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D2035461CAECD1000AC4AED /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3D2035471CAECD7700AC4AED /* SettingTableViewController.h */,
+				3D2035481CAECD7700AC4AED /* SettingTableViewController.m */,
+				3DF3B6071CAEDF23008E003F /* SettingTableViewController.storyboard */,
+			);
+			name = Setting;
+			path = Aria2Downloader/Setting;
 			sourceTree = "<group>";
 		};
 		3D30C3F81C492F8D007234CF /* Base.lproj */ = {
@@ -387,8 +401,6 @@
 				3D6A8BF51C89DD29008B1277 /* ButtonTabBar.m */,
 				3D6A8BF71C89E4FF008B1277 /* AriaTabBarController.h */,
 				3D6A8BF81C89E4FF008B1277 /* AriaTabBarController.m */,
-				3DD6052F1CA6595F00CCA6FA /* SiderViewController.h */,
-				3DD605301CA6595F00CCA6FA /* SiderViewController.m */,
 				3D1D63FC1CA8EF3C00E3F40E /* ContainerViewController.h */,
 				3D1D63FD1CA8EF3C00E3F40E /* ContainerViewController.m */,
 			);
@@ -560,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1F22921C4A3A8100A8BE8A /* LaunchScreen.storyboard in Resources */,
+				3DF3B6081CAEDF23008E003F /* SettingTableViewController.storyboard in Resources */,
 				3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */,
 				3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */,
 				3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */,
@@ -652,7 +665,7 @@
 				3D6A8BF61C89DD29008B1277 /* ButtonTabBar.m in Sources */,
 				3D30C4021C492FB2007234CF /* JsonRPC.m in Sources */,
 				3D80A3B11C91A54E009B630F /* Uri.m in Sources */,
-				3DD605311CA6595F00CCA6FA /* SiderViewController.m in Sources */,
+				3D20354A1CAECD7700AC4AED /* SettingTableViewController.m in Sources */,
 				3D30C4101C4930C3007234CF /* main.m in Sources */,
 				3D6A8BF91C89E4FF008B1277 /* AriaTabBarController.m in Sources */,
 				3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */,

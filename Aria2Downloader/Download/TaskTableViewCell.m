@@ -31,6 +31,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -83,9 +84,51 @@
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+//    self.iconView.size = CGSizeMake(64, 64);
+//    self.iconView.x = 0;
+//    self.iconView.centerY = self.height / 2;
+//    
+//    self.nameLabel.x = CGRectGetMaxX(self.iconView.frame);
+//    self.nameLabel.y = PADDING;
+//    self.nameLabel.width = self.width - 128;
+//    [self.nameLabel sizeToFit];
+//    
+//    self.controlButton.size = CGSizeMake(64, 64);
+//    self.controlButton.x = self.width - self.controlButton.width;
+//    self.controlButton.centerY = self.height / 2;
+////    [self.controlButton sizeToFit];
+//    
+////    self.controlButton.titleEdgeInsets = UIEdgeInsetsMake(40, -self.controlButton.currentImage.size.width, 0, 0);
+////    self.controlButton.imageEdgeInsets = UIEdgeInsetsMake(-20, 0, 0, self.controlButton.titleLabel.size.width);
+//    
+//    self.progressbutton.x = self.nameLabel.x;
+//    self.progressbutton.y = CGRectGetMaxY(self.nameLabel.frame) + PADDING;
+//    self.progressbutton.width = (self.width - 128) * 2 / 3;
+//    self.progressbutton.height = 72 - PADDING * 3 - self.nameLabel.height;
+//    [self.progressbutton sizeToFit];
+//    
+////    self.speedButton.x = CGRectGetMaxX(self.progressLabel.frame);
+//    self.speedButton.x = self.width * 4 / 7;
+//    self.speedButton.y = self.progressbutton.y;
+//    self.speedButton.width = self.width - 128 - self.progressbutton.width;
+//    self.speedButton.height = self.progressbutton.height;
+//    [self.speedButton sizeToFit];
+//}
+
+- (void)awakeFromNib {
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+- (void)setSubviewFrames {
     self.iconView.size = CGSizeMake(64, 64);
     self.iconView.x = 0;
     self.iconView.centerY = self.height / 2;
@@ -98,10 +141,10 @@
     self.controlButton.size = CGSizeMake(64, 64);
     self.controlButton.x = self.width - self.controlButton.width;
     self.controlButton.centerY = self.height / 2;
-//    [self.controlButton sizeToFit];
+    //    [self.controlButton sizeToFit];
     
-//    self.controlButton.titleEdgeInsets = UIEdgeInsetsMake(40, -self.controlButton.currentImage.size.width, 0, 0);
-//    self.controlButton.imageEdgeInsets = UIEdgeInsetsMake(-20, 0, 0, self.controlButton.titleLabel.size.width);
+    //    self.controlButton.titleEdgeInsets = UIEdgeInsetsMake(40, -self.controlButton.currentImage.size.width, 0, 0);
+    //    self.controlButton.imageEdgeInsets = UIEdgeInsetsMake(-20, 0, 0, self.controlButton.titleLabel.size.width);
     
     self.progressbutton.x = self.nameLabel.x;
     self.progressbutton.y = CGRectGetMaxY(self.nameLabel.frame) + PADDING;
@@ -109,22 +152,12 @@
     self.progressbutton.height = 72 - PADDING * 3 - self.nameLabel.height;
     [self.progressbutton sizeToFit];
     
-//    self.speedButton.x = CGRectGetMaxX(self.progressLabel.frame);
+    //    self.speedButton.x = CGRectGetMaxX(self.progressLabel.frame);
     self.speedButton.x = self.width * 4 / 7;
     self.speedButton.y = self.progressbutton.y;
     self.speedButton.width = self.width - 128 - self.progressbutton.width;
     self.speedButton.height = self.progressbutton.height;
     [self.speedButton sizeToFit];
-}
-
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setTask:(Task *)task {
@@ -199,6 +232,8 @@
         [self.controlButton setTitle:text forState:UIControlStateNormal];
         [self.controlButton setTitleColor:color forState:UIControlStateNormal];
     }
+    [self setSubviewFrames];
+
 }
 
 - (NSString *)stringWithFileSize:(NSUInteger)size {
