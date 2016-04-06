@@ -21,6 +21,8 @@
 
 @property (nonatomic)NSTimer *timer;
 
+@property (nonatomic)UIActivityIndicatorView *activityIndicatorView;
+
 @end
 
 @implementation DownloadTableViewController
@@ -33,7 +35,15 @@
     [self.tableView registerClass:[TaskTableViewCell class] forCellReuseIdentifier:@"taskCell"];
     
     self.tableView.rowHeight = 72;
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorView.center = self.tableView.center;
+    [self.tableView addSubview:self.activityIndicatorView];
+    [self.activityIndicatorView startAnimating];
+
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
     
@@ -66,6 +76,7 @@
     [Aria2 tellActiveWithSuccess:^(id response) {
         self.activeTasks = (NSArray *)response;
 //        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+        [self.activityIndicatorView stopAnimating];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
@@ -74,6 +85,7 @@
     [Aria2 tellStoppedWithSuccess:^(id response) {
         self.otherTasks = (NSArray *)response;
 //        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        [self.activityIndicatorView stopAnimating];
         [self.tableView reloadData];
 
     } failure:^(NSError *error) {

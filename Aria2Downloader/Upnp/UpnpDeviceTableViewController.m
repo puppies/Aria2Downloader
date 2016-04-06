@@ -14,6 +14,8 @@
 @property (nonatomic)NSArray *renderers;
 @property (nonatomic)NSArray *servers;
 
+@property (nonatomic)UIActivityIndicatorView *activityIndicatorView;
+
 @end
 
 @implementation UpnpDeviceTableViewController
@@ -32,7 +34,7 @@
     
     self.tableView.rowHeight = 72;
     
-//    [self.tableView reloadData];
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     CGUpnpAvController *avController = [[CGUpnpAvController alloc] init];
     avController.delegate = self;
@@ -40,22 +42,10 @@
         [avController search];
     });
     
-//    CGUpnpControlPoint *cp = [[CGUpnpControlPoint alloc] init];
-//    cp.delegate = self;
-//    [cp search];
-//    NSArray *devices = cp.devices;
-//    for (CGUpnpDevice *device in devices) {
-//        NSLog(@"deviceType: %@", device.deviceType);
-//        NSArray *services = device.services;
-//        for (CGUpnpService *service in services) {
-//            NSLog(@"service: %@", service.serviceType);
-//            NSArray *actions = service.actions;
-//            for (CGUpnpAction *action in actions) {
-//                NSLog(@"action: %@", action.name);
-//            }
-//        }
-//        
-//    }
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorView.center = self.tableView.center;
+    [self.tableView addSubview:self.activityIndicatorView];
+    [self.activityIndicatorView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +98,7 @@
 //        NSLog(@"%@ %@", servrer.friendlyName, servrer.deviceType);
 //        [servrer start];
 //    }
+    [self.activityIndicatorView stopAnimating];
     
     [self.tableView reloadData];
 }
