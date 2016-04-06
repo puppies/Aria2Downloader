@@ -53,6 +53,7 @@
         [self.controlButton setImage:[UIImage imageNamed:@"restart"] forState:UIControlStateNormal];
         [self.controlButton setImage:[UIImage imageNamed:@"checkmark"] forState:UIControlStateDisabled];
         [self.controlButton setTitle:@"完成" forState:UIControlStateDisabled];
+        [self.controlButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 
         
 //        self.controlButton.imageView.backgroundColor = [UIColor blueColor];
