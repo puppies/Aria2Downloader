@@ -23,6 +23,8 @@
 
 @property (nonatomic)UIActivityIndicatorView *activityIndicatorView;
 
+@property (assign)BOOL shouldAnimate;
+
 @end
 
 @implementation DownloadTableViewController
@@ -58,12 +60,15 @@
 //    [self.navigationItem.titleView sizeToFit];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:(ContainerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController action:@selector(openSiderView)];
+    
+    self.shouldAnimate = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -164,6 +169,21 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.shouldAnimate) {
+        cell.transform = CGAffineTransformMakeTranslation(tableView.width, 0);
+        [UIView animateWithDuration:1.6 delay:0.05 * indexPath.row usingSpringWithDamping:0.77 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            cell.transform = CGAffineTransformIdentity;
+        } completion:nil];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if (cell == tableView.visibleCells.lastObject) {
+        self.shouldAnimate = NO;
+    }
 }
 
 @end

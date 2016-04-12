@@ -23,26 +23,33 @@ const unsigned int SettingViewWidth = 250;
 
 @implementation ContainerViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        UIStoryboard *settingTableViewStoryBoard = [UIStoryboard storyboardWithName:@"SettingTableViewController" bundle:nil];
+        SettingTableViewController *settingViewController = [settingTableViewStoryBoard instantiateViewControllerWithIdentifier:@"settingTableView"];
+        settingViewController.view.x = - SettingViewWidth;
+        settingViewController.view.y = 0;
+        settingViewController.view.size = CGSizeMake(SettingViewWidth, self.view.height);
+        //    settingViewController.view.backgroundColor = [UIColor redColor];
+//        [self.view addSubview:settingViewController.view];
+//        [self addChildViewController:settingViewController];
+//        [settingViewController didMoveToParentViewController:self];
+        self.settingViewController = settingViewController;
+        
+        AriaTabBarController *tabBarController = [[AriaTabBarController alloc] init];
+        
+        [self addChildViewController:tabBarController];
+        [self.view addSubview:tabBarController.view];
+        [tabBarController didMoveToParentViewController:self];
+        self.tabBarController = tabBarController;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIStoryboard *settingTableViewStoryBoard = [UIStoryboard storyboardWithName:@"SettingTableViewController" bundle:nil];
-    SettingTableViewController *settingViewController = [settingTableViewStoryBoard instantiateViewControllerWithIdentifier:@"settingTableView"];
-    settingViewController.tableView.x = -SettingViewWidth;
-    settingViewController.tableView.y = 0;
-    settingViewController.tableView.size = CGSizeMake(SettingViewWidth, self.view.height);
-//    settingViewController.view.backgroundColor = [UIColor redColor];
-    [self addChildViewController:settingViewController];
-    [self.view addSubview:settingViewController.tableView];
-    [settingViewController didMoveToParentViewController:self];
-    self.settingViewController = settingViewController;
-
-    AriaTabBarController *tabBarController = [[AriaTabBarController alloc] init];
-    
-    [self addChildViewController:tabBarController];
-    [self.view addSubview:tabBarController.view];
-    [tabBarController didMoveToParentViewController:self];
-    self.tabBarController = tabBarController;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSiderView)];
     tapRecognizer.delegate = self;
@@ -73,19 +80,35 @@ const unsigned int SettingViewWidth = 250;
 }
 */
 - (void)openSiderView {
+    [self addChildViewController:self.settingViewController];
+    
+    
+    [self.settingViewController beginAppearanceTransition:YES animated:YES];
+    [self.view addSubview:self.settingViewController.view];
+    [self.settingViewController didMoveToParentViewController:self];
+    
     self.tabBarController.view.userInteractionEnabled = NO;
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
         self.settingViewController.view.x = 0;
         self.tabBarController.view.x = SettingViewWidth;
-    }];
+    } completion:nil];
 }
 
 - (void)closeSiderView {
+    
+    [self.settingViewController.view removeFromSuperview];
+    [self.settingViewController willMoveToParentViewController:nil];
+    [self.settingViewController removeFromParentViewController];
+    
     self.tabBarController.view.userInteractionEnabled = YES;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.settingViewController.view.x = -SettingViewWidth;
+//    [UIView animateWithDuration:0.5 animations:^{
+//        self.settingViewController.view.x = -SettingViewWidth;
+//        self.tabBarController.view.x = 0;
+//    }];
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
+        self.settingViewController.view.x = - SettingViewWidth;
         self.tabBarController.view.x = 0;
-    }];
+    } completion:nil];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {

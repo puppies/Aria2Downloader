@@ -38,6 +38,8 @@
 
 @property (nonatomic)id playerObserver;
 
+@property (nonatomic)NSTimer *hideTimer;
+
 @end
 
 @implementation DLNAPlaybackViewController
@@ -45,39 +47,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [ UIColor blackColor];
-//    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
-    
-//    self.navigationController.view.transform = CGAffineTransformMakeRotation(M_PI/2);
-//    self.navigationController.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    
-//    self.navigationController.navigationBar.hidden = YES;
-//    self.tabBarController.tabBar.hidden = NO;
-//    [UIApplication sharedApplication].statusBarHidden = NO;
-//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self selector:@selector(didOrientation) name:UIDeviceOrientationDidChangeNotification object:nil];
     
-    [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeLeft) forKey:@"orientation"];
-    
-    
-//    _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhiteLarge];
-//    _activityIndicatorView.center = self.view.center;
-//    [self.view addSubview:_activityIndicatorView];
-//    
-//    CGFloat width = self.view.bounds.size.width;
-//    CGFloat height = self.view.bounds.size.height;
-//    CGFloat topH = 50;
-//    CGFloat botH = 50;
-//    
-//    _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, topH)];
-//    _topView.tintColor = [UIColor whiteColor];
-//    _bottomToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, height - botH, width, botH)];
-//    [self.view addSubview:_topView];
-//    [self.view addSubview:_bottomToolBar];
+    [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeLeft) forKey:@"orientation"];    
     
     [self.activityIndicatorView startAnimating];
     self.playBtn.target = self;
@@ -98,13 +73,6 @@
         [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial context:nil];
     }
 }
-
-//- (void)viewDidLayoutSubviews {
-//    [super viewDidLayoutSubviews];
-//    
-//    [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeLeft) forKey:@"orientation"];
-//
-//}
     
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
@@ -113,16 +81,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [UIApplication sharedApplication].statusBarHidden = NO;
-
+    
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:8 target:self selector:@selector(hideUI) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    self.hideTimer = timer;
 }
-
-
-
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    NSLog(@"%s", __func__);
-//    NSLog(@"%ld", (long)self.player.status);
-//}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -137,14 +101,10 @@
     [notificationCenter removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     
     [self.player removeTimeObserver:self.playerObserver];
+    
+    [self.hideTimer invalidate];
+    self.hideTimer = nil;
 }
-
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    
-//    self.navigationController.view.transform = CGAffineTransformIdentity;
-//    self.navigationController.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-//}
 
 static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
 {
@@ -165,33 +125,13 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
     return format;
 }
 
-//- (AVPlayer *)player {
-//    if (!_player) {
-//        AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:self.item.resourceUrl];
-//        NSLog(@"resourceUrl: %@", self.item.resourceUrl);
-//        
-//        _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-//        
-//        [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-//        
-//        _layer = [AVPlayerLayer playerLayerWithPlayer:_player];
-//
-//        _layer.frame = self.view.bounds;
-//        NSLog(@"%@", NSStringFromCGRect(_layer.frame));
-//        _layer.backgroundColor = [UIColor blackColor].CGColor;
-////        self.view.layer.backgroundColor = [UIColor redColor].CGColor;
-//
-//        [self.view.layer insertSublayer:_layer atIndex:0];
-//    }
-//    return _player;
-//}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     
     if ([keyPath isEqualToString:@"status"] && self.player.status == AVPlayerStatusReadyToPlay) {
         
         if (!self.layer) {
             self.layer = [AVPlayerLayer playerLayerWithPlayer:_player];
+            self.layer.contentsGravity = kCAGravityResizeAspect;
             
             self.layer.frame = self.view.bounds;
             NSLog(@"%@", NSStringFromCGRect(_layer.frame));
@@ -228,48 +168,42 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
     // Dispose of any resources that can be recreated.
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [UIApplication sharedApplication].statusBarHidden = ! [UIApplication sharedApplication].statusBarHidden;
-    self.topView.hidden = !self.topView.isHidden;
-    self.bottomToolBar.hidden = !self.bottomToolBar.isHidden;
+    if (self.hideTimer) {
+        [self.hideTimer invalidate];
+        self.hideTimer = nil;
+    } else {
+        NSTimer *timer = [NSTimer timerWithTimeInterval:8 target:self selector:@selector(hideUI) userInfo:nil repeats:NO];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        self.hideTimer = timer;
+    }
+    [[UIApplication sharedApplication] setStatusBarHidden:![UIApplication sharedApplication].statusBarHidden withAnimation:UIStatusBarAnimationSlide];
+    if (!CGAffineTransformEqualToTransform(self.topView.transform, CGAffineTransformIdentity)) {
+        self.topView.hidden = !self.topView.isHidden;
+        self.bottomToolBar.hidden = !self.bottomToolBar.isHidden;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.topView.transform = CGAffineTransformIdentity;
+            self.bottomToolBar.transform = CGAffineTransformIdentity;
+        }];
+    } else {
+        [self hideUI];
+    }
     
-//    [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeLeft) forKey:@"orientation"];
-    
-//    _layer.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-
-
 }
 
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-//    return UIInterfaceOrientationLandscapeLeft;
-//}
-//
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskLandscape;
-//}
 
 - (void)didOrientation {
-    CGFloat y, height;
-    if ([UIDevice currentDevice].orientation & UIDeviceOrientationPortrait) {
-        height = self.view.width * 9 / 16;
-        y = (self.view.height - height) / 2;
-
-    } else {
-        height = self.view.height;
-        y = 0;
-    }
-    self.layer.frame = CGRectMake(0, y, self.view.width, height);
+//    CGFloat y, height;
+//    if ([UIDevice currentDevice].orientation & UIDeviceOrientationPortrait) {
+//        height = self.view.width * 9 / 16;
+//        y = (self.view.height - height) / 2;
+//
+//    } else {
+//        height = self.view.height;
+//        y = 0;
+//    }
+//    self.layer.frame = CGRectMake(0, y, self.view.width, height);
+    self.layer.frame = self.view.frame;
 }
 
 - (IBAction)close:(id)sender {
@@ -297,6 +231,21 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
             [self.player pause];
             self.playBtn.image = [UIImage imageNamed:@"playback_play"];
         }
+    }];
+}
+
+- (void)hideUI {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
+    [UIView animateWithDuration:0.7 animations:^{
+        self.topView.transform = CGAffineTransformMakeTranslation(0, -CGRectGetMaxY(self.topView.frame));
+        self.bottomToolBar.transform = CGAffineTransformMakeTranslation(0, self.bottomToolBar.size.height);
+    } completion:^(BOOL finished) {
+        self.topView.hidden = YES;
+        self.bottomToolBar.hidden = YES;
+        
+        [self.hideTimer invalidate];
+        self.hideTimer = nil;
     }];
 }
 

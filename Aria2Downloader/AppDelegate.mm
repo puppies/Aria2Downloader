@@ -33,7 +33,9 @@
     // Override point for customization after application launch.
     UINavigationBar *appearance = [UINavigationBar appearance];
 
-    [appearance setBarTintColor:[UIColor colorWithRed:116.0/255 green:57.0/255 blue:81.0/255 alpha:1.0]];
+//    [appearance setBarTintColor:[UIColor colorWithRed:116.0/255 green:57.0/255 blue:81.0/255 alpha:1.0]];
+    [appearance setBarTintColor:[UIColor colorWithRed:46.0/255 green:185.0/255 blue:247.0/255 alpha:1.0]];
+
 //    [appearance setTranslucent:NO];
 
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -45,7 +47,7 @@
     UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
     [barButtonItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
     [barButtonItem setTintColor:[UIColor whiteColor]];
-    
+        
     return YES;
 }
 

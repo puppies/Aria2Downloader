@@ -87,6 +87,15 @@
     [self.navigationController pushViewController:contentController animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    cell.transform = CGAffineTransformMakeTranslation(tableView.bounds.size.width, 0);
+    [UIView animateWithDuration:1.6 delay:0.05 * indexPath.row usingSpringWithDamping:0.77 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        cell.transform = CGAffineTransformIdentity;
+    } completion:nil];
+
+}
+
 #pragma mark - CGUpnpAvControllerDelegate
 
 - (void)controlPoint:(CGUpnpControlPoint *)controlPoint deviceUpdated:(NSString *)deviceUdn {
