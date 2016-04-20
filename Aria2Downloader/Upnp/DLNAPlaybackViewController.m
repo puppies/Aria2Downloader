@@ -193,16 +193,7 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
 
 
 - (void)didOrientation {
-//    CGFloat y, height;
-//    if ([UIDevice currentDevice].orientation & UIDeviceOrientationPortrait) {
-//        height = self.view.width * 9 / 16;
-//        y = (self.view.height - height) / 2;
-//
-//    } else {
-//        height = self.view.height;
-//        y = 0;
-//    }
-//    self.layer.frame = CGRectMake(0, y, self.view.width, height);
+
     self.layer.frame = self.view.frame;
 }
 

@@ -141,8 +141,12 @@
     }
     
     if ([fileName isEqualToString:@""]) {
-        Uri *uri0 = file.uris[0];
-        fileName = [uri0.uri copy];
+        if (file.uris.count == 0) {
+            fileName = [@"Unknown" mutableCopy];
+        } else {
+            Uri *uri0 = file.uris[0];
+            fileName = [uri0.uri copy];
+        }
     }
     
     NSString *fileType = [self fileTypeOf:fileName];

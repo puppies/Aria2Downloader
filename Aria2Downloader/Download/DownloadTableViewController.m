@@ -23,7 +23,7 @@
 
 @property (nonatomic)UIActivityIndicatorView *activityIndicatorView;
 
-@property (assign)BOOL shouldAnimate;
+//@property (assign)BOOL shouldAnimate;
 
 @end
 
@@ -45,23 +45,10 @@
     self.activityIndicatorView.center = self.tableView.center;
     [self.tableView addSubview:self.activityIndicatorView];
     [self.activityIndicatorView startAnimating];
-
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    
-//    UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"下载", @"电影库"]];
-    
-//    segmentControl.tintColor = [UIColor clearColor];
-    
-//    NSDictionary *normalAttrs = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
-//    [segmentControl setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
-    
-//    self.navigationItem.titleView = segmentControl;
-//    [self.navigationItem.titleView sizeToFit];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:(ContainerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController action:@selector(openSiderView)];
     
-    self.shouldAnimate = YES;
+//    self.shouldAnimate = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,7 +67,7 @@
 
     [Aria2 tellActiveWithSuccess:^(id response) {
         self.activeTasks = (NSArray *)response;
-//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+
         [self.activityIndicatorView stopAnimating];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -89,7 +76,7 @@
     
     [Aria2 tellStoppedWithSuccess:^(id response) {
         self.otherTasks = (NSArray *)response;
-//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+
         [self.activityIndicatorView stopAnimating];
         [self.tableView reloadData];
 
@@ -171,19 +158,19 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.shouldAnimate) {
-        cell.transform = CGAffineTransformMakeTranslation(tableView.width, 0);
-        [UIView animateWithDuration:1.6 delay:0.05 * indexPath.row usingSpringWithDamping:0.77 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            cell.transform = CGAffineTransformIdentity;
-        } completion:nil];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if (cell == tableView.visibleCells.lastObject) {
-        self.shouldAnimate = NO;
-    }
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (self.shouldAnimate) {
+//        cell.transform = CGAffineTransformMakeTranslation(tableView.width, 0);
+//        [UIView animateWithDuration:1.6 delay:0.05 * indexPath.row usingSpringWithDamping:0.77 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//            cell.transform = CGAffineTransformIdentity;
+//        } completion:nil];
+//    }
+//}
+//
+//- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+//    if (cell == tableView.visibleCells.lastObject) {
+//        self.shouldAnimate = NO;
+//    }
+//}
 
 @end

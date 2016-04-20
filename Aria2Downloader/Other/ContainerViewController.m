@@ -11,12 +11,15 @@
 #import "SettingTableViewController.h"
 #import "UIView+extension.h"
 
-const unsigned int SettingViewWidth = 250;
+const int SettingViewWidth = 250;
 
 @interface ContainerViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic)SettingTableViewController *settingViewController;
 @property (nonatomic)UITapGestureRecognizer *tapRecognizer;
+@property (nonatomic)UISwipeGestureRecognizer *swipeRightRecognizer;
+@property (nonatomic)UISwipeGestureRecognizer *swipeLeftRecognizer;
+
 @property (nonatomic)AriaTabBarController *tabBarController;
 
 @end
@@ -28,9 +31,7 @@ const unsigned int SettingViewWidth = 250;
     if (self) {
         UIStoryboard *settingTableViewStoryBoard = [UIStoryboard storyboardWithName:@"SettingTableViewController" bundle:nil];
         SettingTableViewController *settingViewController = [settingTableViewStoryBoard instantiateViewControllerWithIdentifier:@"settingTableView"];
-        settingViewController.view.x = - SettingViewWidth;
-        settingViewController.view.y = 0;
-        settingViewController.view.size = CGSizeMake(SettingViewWidth, self.view.height);
+        
         //    settingViewController.view.backgroundColor = [UIColor redColor];
 //        [self.view addSubview:settingViewController.view];
 //        [self addChildViewController:settingViewController];
@@ -59,10 +60,12 @@ const unsigned int SettingViewWidth = 250;
     UISwipeGestureRecognizer *swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(closeSiderView)];
     swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeftRecognizer];
+    self.swipeLeftRecognizer = swipeLeftRecognizer;
     
     UISwipeGestureRecognizer *swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openSiderView)];
     swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRightRecognizer];
+    self.swipeRightRecognizer = swipeRightRecognizer;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,35 +83,43 @@ const unsigned int SettingViewWidth = 250;
 }
 */
 - (void)openSiderView {
+    self.swipeLeftRecognizer.enabled = YES;
+    self.swipeRightRecognizer.enabled = NO;
+    
     [self addChildViewController:self.settingViewController];
     
+    self.settingViewController.view.x = -SettingViewWidth;
+    NSLog(@"%@", NSStringFromCGRect(self.settingViewController.view.frame));
+//    self.settingViewController.view.x = -250;
+
+    self.settingViewController.view.size = CGSizeMake(SettingViewWidth, self.view.height );
+    self.settingViewController.view.centerY = self.view.centerY;
     
-    [self.settingViewController beginAppearanceTransition:YES animated:YES];
     [self.view addSubview:self.settingViewController.view];
     [self.settingViewController didMoveToParentViewController:self];
     
     self.tabBarController.view.userInteractionEnabled = NO;
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
         self.settingViewController.view.x = 0;
-        self.tabBarController.view.x = SettingViewWidth;
+//        self.tabBarController.view.x = SettingViewWidth;
     } completion:nil];
+    
 }
 
 - (void)closeSiderView {
-    
-    [self.settingViewController.view removeFromSuperview];
-    [self.settingViewController willMoveToParentViewController:nil];
-    [self.settingViewController removeFromParentViewController];
+    self.swipeLeftRecognizer.enabled = NO;
+    self.swipeRightRecognizer.enabled = YES;
     
     self.tabBarController.view.userInteractionEnabled = YES;
-//    [UIView animateWithDuration:0.5 animations:^{
-//        self.settingViewController.view.x = -SettingViewWidth;
+
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:0 animations:^{
+        self.settingViewController.view.x = -SettingViewWidth - 10;
 //        self.tabBarController.view.x = 0;
-//    }];
-    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
-        self.settingViewController.view.x = - SettingViewWidth;
-        self.tabBarController.view.x = 0;
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        [self.settingViewController.view removeFromSuperview];
+        [self.settingViewController willMoveToParentViewController:nil];
+        [self.settingViewController removeFromParentViewController];
+    }];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {

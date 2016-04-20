@@ -27,7 +27,10 @@
     self.view.layer.masksToBounds = NO;
     self.view.layer.shadowOpacity = 0.6;
     self.view.layer.shadowOffset = CGSizeMake(3, 0);
+    self.view.layer.cornerRadius = 8;
     
+    self.routerIPTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.refreshTimeTextField.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 - (void)didReceiveMemoryWarning {
