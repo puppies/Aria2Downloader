@@ -25,6 +25,8 @@
 		3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4051C492FC7007234CF /* DownloadTableViewController.m */; };
 		3D30C4101C4930C3007234CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C40F1C4930C3007234CF /* main.m */; };
 		3D30C4161C49349E007234CF /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D30C4151C49349E007234CF /* File.m */; };
+		3D31E9AF1CC7B7D100EC70C2 /* Networking Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 3D31E9AE1CC7B7D100EC70C2 /* Networking Extensions */; };
+		3D31E9B71CC7BBB600EC70C2 /* Aria2AppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D31E9B61CC7BBB600EC70C2 /* Aria2AppClient.m */; };
 		3D51ACA51C46A43000D39FA4 /* Aria2DownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACA41C46A43000D39FA4 /* Aria2DownloaderTests.m */; };
 		3D51ACB01C46A43000D39FA4 /* Aria2DownloaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D51ACAF1C46A43000D39FA4 /* Aria2DownloaderUITests.m */; };
 		3D6A8BF31C88954F008B1277 /* UIView+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A8BF21C88954F008B1277 /* UIView+extension.m */; };
@@ -139,6 +141,10 @@
 		3D30C40F1C4930C3007234CF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Aria2Downloader/main.m; sourceTree = "<group>"; };
 		3D30C4141C49349E007234CF /* DFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFile.h; sourceTree = "<group>"; };
 		3D30C4151C49349E007234CF /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		3D31E9AE1CC7B7D100EC70C2 /* Networking Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Networking Extensions"; path = "/Users/happy/Developer/Aria2Downloader/Aria2Downloader/Other/Networking Extensions"; sourceTree = "<absolute>"; };
+		3D31E9B51CC7BBB600EC70C2 /* Aria2AppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aria2AppClient.h; sourceTree = "<group>"; };
+		3D31E9B61CC7BBB600EC70C2 /* Aria2AppClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aria2AppClient.m; sourceTree = "<group>"; };
+		3D31E9B81CC7BC3700EC70C2 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../Library/Developer/Xcode/DerivedData/Aria2Downloader-agqyhibjurzlgbelzwvosgmpbywu/Build/Products/Debug-iphonesimulator/libAFNetworking.a"; sourceTree = "<group>"; };
 		3D51AC871C46A43000D39FA4 /* Aria2Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aria2Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D51ACA01C46A43000D39FA4 /* Aria2DownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aria2DownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D51ACA41C46A43000D39FA4 /* Aria2DownloaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Aria2DownloaderTests.m; sourceTree = "<group>"; };
@@ -284,6 +290,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3D31E9B41CC7BBB600EC70C2 /* Networking Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D31E9B51CC7BBB600EC70C2 /* Aria2AppClient.h */,
+				3D31E9B61CC7BBB600EC70C2 /* Aria2AppClient.m */,
+			);
+			path = "Networking Extensions";
+			sourceTree = "<group>";
+		};
 		3D51AC7E1C46A43000D39FA4 = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +408,7 @@
 		3DCCBDE01C9EF752002582B6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3D31E9B41CC7BBB600EC70C2 /* Networking Extensions */,
 				3DFD767D1C94572F00FC68B2 /* SegmentNavigationController.m */,
 				3DFD767C1C94572F00FC68B2 /* SegmentNavigationController.h */,
 				3DFD76821C9474B400FC68B2 /* MainScrollViewController.h */,
@@ -420,6 +436,7 @@
 		81BE53EED3AA1AED31517AF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D31E9B81CC7BC3700EC70C2 /* libAFNetworking.a */,
 				3D8212061CA1B29D00A7032A /* VideoToolbox.framework */,
 				3D8212041CA1A8C800A7032A /* libiconv.tbd */,
 				3D8212021CA1A8AF00A7032A /* libbz2.tbd */,
@@ -576,6 +593,7 @@
 				3D1B28BE1C8D835400F07D4D /* NewTaskView.xib in Resources */,
 				3D30C3F71C492F7C007234CF /* Assets.xcassets in Resources */,
 				3D1F22931C4A3A8100A8BE8A /* Main.storyboard in Resources */,
+				3D31E9AF1CC7B7D100EC70C2 /* Networking Extensions in Resources */,
 				3D2035431CAD308200AC4AED /* DLNAPlaybackView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +687,7 @@
 				3D30C4101C4930C3007234CF /* main.m in Sources */,
 				3D6A8BF91C89E4FF008B1277 /* AriaTabBarController.m in Sources */,
 				3D30C4061C492FC7007234CF /* DownloadTableViewController.m in Sources */,
+				3D31E9B71CC7BBB600EC70C2 /* Aria2AppClient.m in Sources */,
 				3D6A8BF31C88954F008B1277 /* UIView+extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

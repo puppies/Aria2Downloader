@@ -64,6 +64,8 @@
 }
 
 - (void)refreshActiveStatus {
+    
+    
 
     [Aria2 tellActiveWithSuccess:^(id response) {
         self.activeTasks = (NSArray *)response;
@@ -73,7 +75,7 @@
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
-    
+
     [Aria2 tellStoppedWithSuccess:^(id response) {
         self.otherTasks = (NSArray *)response;
 
