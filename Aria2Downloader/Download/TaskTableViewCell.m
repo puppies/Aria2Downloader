@@ -20,7 +20,9 @@
 @property (nonatomic)UIImageView *iconView;
 @property (nonatomic)UILabel *nameLabel;
 @property (nonatomic)UpDownButton *controlButton;
-@property (nonatomic)UIButton *progressbutton;
+//@property (nonatomic)UIButton *progressbutton;
+@property (nonatomic)UIImageView *pieView;
+@property (nonatomic)UILabel *percentLabel;
 @property (nonatomic)UIButton *speedButton;
 
 @end
@@ -67,12 +69,21 @@
 //        self.controlButton.backgroundColor = [UIColor redColor];
         
         /* download progress */
-        self.progressbutton = [[UIButton alloc] init];
-        self.progressbutton.titleLabel.font = [UIFont systemFontOfSize:9];
-        [self.progressbutton setImage:[UIImage imageNamed:@"pie"] forState:UIControlStateNormal];
-        [self.progressbutton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [self.contentView addSubview:self.progressbutton];
-//        self.progressbutton.backgroundColor = [UIColor greenColor];
+//        self.progressbutton = [[UIButton alloc] init];
+//        self.progressbutton.titleLabel.font = [UIFont systemFontOfSize:9];
+//        [self.progressbutton setImage:[UIImage imageNamed:@"chart_pie"] forState:UIControlStateNormal];
+//        self.progressbutton.imageView.contentMode = UIViewContentModeScaleToFill;
+//        [self.progressbutton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//        [self.contentView addSubview:self.progressbutton];
+
+        self.pieView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chart_pie"]];
+        self.pieView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.contentView addSubview:self.pieView];
+        
+        self.percentLabel = [[UILabel alloc] init];
+        self.percentLabel.font = [UIFont systemFontOfSize:9];
+        self.percentLabel.textColor = [UIColor grayColor];
+        [self.contentView addSubview:self.percentLabel];
         
         /* download speed */
         self.speedButton = [[UIButton alloc] init];
@@ -113,18 +124,21 @@
     //    self.controlButton.titleEdgeInsets = UIEdgeInsetsMake(40, -self.controlButton.currentImage.size.width, 0, 0);
     //    self.controlButton.imageEdgeInsets = UIEdgeInsetsMake(-20, 0, 0, self.controlButton.titleLabel.size.width);
     
-    self.progressbutton.x = self.nameLabel.x;
-    self.progressbutton.y = CGRectGetMaxY(self.nameLabel.frame) + PADDING;
-    self.progressbutton.width = (self.width - 128) * 2 / 3;
-    self.progressbutton.height = 72 - PADDING * 3 - self.nameLabel.height;
-    [self.progressbutton sizeToFit];
+    self.pieView.x = self.nameLabel.x;
+    self.pieView.y = CGRectGetMaxY(self.nameLabel.frame) + PADDING;
+//    self.progressbutton.width = (self.width - 128) * 2 / 3;
+//    self.progressbutton.height = 72 - PADDING * 3 - self.nameLabel.height;
+    self.pieView.size = CGSizeMake(10, 10);
+    
+    self.percentLabel.x = CGRectGetMaxX(self.pieView.frame) + 5;
+    self.percentLabel.y = self.pieView.y;
     
     //    self.speedButton.x = CGRectGetMaxX(self.progressLabel.frame);
-    self.speedButton.x = self.width * 4 / 7;
-    self.speedButton.y = self.progressbutton.y;
-    self.speedButton.width = self.width - 128 - self.progressbutton.width;
-    self.speedButton.height = self.progressbutton.height;
-    [self.speedButton sizeToFit];
+//    self.speedButton.x = self.width * 4 / 7;
+//    self.speedButton.y = self.progressbutton.y;
+//    self.speedButton.width = self.width - 128 - self.progressbutton.width;
+//    self.speedButton.height = self.progressbutton.height;
+//    [self.speedButton sizeToFit];
 }
 
 - (void)setTask:(Task *)task {
@@ -161,10 +175,11 @@
     NSString *progress = [NSString stringWithFormat:@"%@/%@", \
                           [self stringWithFileSize:task.completedLength], [self stringWithFileSize:task.totalLength]];
     
-    [self.progressbutton setTitle:progress forState:UIControlStateNormal];
+    self.percentLabel.text = progress;
+    [self.percentLabel sizeToFit];
     
     NSString *speed = [NSString stringWithFormat:@"%.2f KB/s", (CGFloat)task.downloadSpeed / 1024];
-    [self.speedButton setTitle:speed forState:UIControlStateNormal];
+//    [self.speedButton setTitle:speed forState:UIControlStateNormal];
     
     if ([task.status isEqualToString:@"complete"]) {
         self.controlButton.enabled = NO;
@@ -223,31 +238,31 @@
     NSArray *movieArray = @[@".mkv", @".MKV",@".mp4",@".MP4",@".avi",@".AVI",@".rmvb", @".RMVB"];
     for (NSString *suf in movieArray) {
         if ([file hasSuffix:suf]) {
-            return @"movie";
+            return @"file-video";
         }
     }
     
-    NSArray *tarArray = @[@".tar", @".zip", @".", @".rar", @".7z", @".gz"];
+    NSArray *tarArray = @[@".tar", @".zip", @".", @".rar", @".7z", @".gz", @".dmg"];
     for (NSString *suf in tarArray) {
         if ([file hasSuffix:suf]) {
-            return @"tar";
+            return @"file-zip";
         }
     }
     
     NSArray *pictureArray = @[@".jpeg", @".jpg",@".png",@".bmp",@".gif"];
     for (NSString *suf in pictureArray) {
         if ([file hasSuffix:suf]) {
-            return @"picture";
+            return @"file-picture";
         }
     }
     
     NSArray *musicArray = @[@".mp3", @".aac",@".m4a",@".flac"];
     for (NSString *suf in musicArray) {
         if ([file hasSuffix:suf]) {
-            return @"music";
+            return @"file-sound";
         }
     }
-    return @"blankfile";
+    return @"file-unknown";
 }
 
 - (void)restart {

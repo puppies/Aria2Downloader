@@ -86,7 +86,10 @@
         
 //        dispatch_async(<#dispatch_queue_t queue#>, <#^(void)block#>)
         
-        cell.imageView.image = [self getVideoPreViewImage:item.resourceUrl];
+//        cell.imageView.image = [self getVideoPreViewImage:item.resourceUrl];
+        cell.imageView.image = [UIImage imageNamed:@"file-unknown"];
+    } else if (object.isContainer) {
+        cell.imageView.image = [UIImage imageNamed:@"folder"];
     }
     
     
@@ -148,9 +151,9 @@
     AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
     
     gen.appliesPreferredTrackTransform = YES;
-    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
-    NSError *error = nil;
-    CMTime actualTime;
+//    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+//    NSError *error = nil;
+//    CMTime actualTime;
     
 //    [gen generateCGImagesAsynchronouslyForTimes:@[time] completionHandler:^(CMTime requestedTime, CGImageRef  _Nullable image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError * _Nullable error) {
 //        UIImage *img = [[UIImage alloc] initWithCGImage:image];

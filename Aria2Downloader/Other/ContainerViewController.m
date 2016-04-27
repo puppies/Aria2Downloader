@@ -17,8 +17,8 @@ const int SettingViewWidth = 250;
 
 @property (nonatomic)SettingTableViewController *settingViewController;
 @property (nonatomic)UITapGestureRecognizer *tapRecognizer;
-@property (nonatomic)UISwipeGestureRecognizer *swipeRightRecognizer;
-@property (nonatomic)UISwipeGestureRecognizer *swipeLeftRecognizer;
+//@property (nonatomic)UIPanGestureRecognizer *swipeRightRecognizer;
+@property (nonatomic)UIPanGestureRecognizer *swipeLeftRecognizer;
 
 @property (nonatomic)AriaTabBarController *tabBarController;
 
@@ -57,15 +57,16 @@ const int SettingViewWidth = 250;
     [self.view addGestureRecognizer:tapRecognizer];
     self.tapRecognizer = tapRecognizer;
     
-    UISwipeGestureRecognizer *swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(closeSiderView)];
-    swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    UIPanGestureRecognizer *swipeLeftRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+//    swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeftRecognizer];
     self.swipeLeftRecognizer = swipeLeftRecognizer;
     
-    UISwipeGestureRecognizer *swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openSiderView)];
-    swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipeRightRecognizer];
-    self.swipeRightRecognizer = swipeRightRecognizer;
+//    UIPanGestureRecognizer *swipeRightRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(openSiderView)];
+////    swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+//    [self.view addGestureRecognizer:swipeRightRecognizer];
+//    self.swipeRightRecognizer = swipeRightRecognizer;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,8 +84,8 @@ const int SettingViewWidth = 250;
 }
 */
 - (void)openSiderView {
-    self.swipeLeftRecognizer.enabled = YES;
-    self.swipeRightRecognizer.enabled = NO;
+    NSLog(@"%s", __func__);
+//    self.swipeRightRecognizer.enabled = NO;
     
     [self addChildViewController:self.settingViewController];
     
@@ -102,15 +103,20 @@ const int SettingViewWidth = 250;
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
         self.settingViewController.view.x = 0;
 //        self.tabBarController.view.x = SettingViewWidth;
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        self.swipeLeftRecognizer.enabled = YES;
+    }];
     
 }
 
 - (void)closeSiderView {
+    NSLog(@"%s", __func__);
+
     self.swipeLeftRecognizer.enabled = NO;
-    self.swipeRightRecognizer.enabled = YES;
     
     self.tabBarController.view.userInteractionEnabled = YES;
+    NSLog(@"%@", NSStringFromCGRect(self.settingViewController.view.frame));
+
 
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:0 animations:^{
         self.settingViewController.view.x = -SettingViewWidth - 10;
@@ -119,8 +125,39 @@ const int SettingViewWidth = 250;
         [self.settingViewController.view removeFromSuperview];
         [self.settingViewController willMoveToParentViewController:nil];
         [self.settingViewController removeFromParentViewController];
+//        self.swipeRightRecognizer.enabled = YES;
+
+        NSLog(@"%@", NSStringFromCGRect(self.settingViewController.view.frame));
+
     }];
 }
+
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    NSLog(@"%s", __func__);
+    if (self.settingViewController.parentViewController == nil) {
+        [self addChildViewController:self.settingViewController];
+        
+        self.settingViewController.view.x = -SettingViewWidth;
+        NSLog(@"%@", NSStringFromCGRect(self.settingViewController.view.frame));
+        //    self.settingViewController.view.x = -250;
+        
+        self.settingViewController.view.size = CGSizeMake(SettingViewWidth, self.view.height );
+        self.settingViewController.view.centerY = self.view.centerY;
+        
+        [self.view addSubview:self.settingViewController.view];
+        [self.settingViewController didMoveToParentViewController:self];
+    }
+    CGPoint distance = [panGestureRecognizer translationInView:self.view];
+    if (CGRectGetMaxX(self.settingViewController.view.frame) < 0 ) {
+        self.settingViewController.view.x += distance.x;
+    }
+    
+    [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
+    NSLog(@"%@", NSStringFromCGRect(self.settingViewController.view.frame));
+
+}
+
+#pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     CGPoint point = [touch locationInView:self.view];

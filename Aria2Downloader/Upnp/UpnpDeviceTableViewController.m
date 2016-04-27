@@ -70,6 +70,7 @@
     // Configure the cell...
     CGUpnpDevice *device = self.servers[indexPath.row];
     cell.textLabel.text = device.friendlyName;
+    cell.imageView.image = [UIImage imageNamed:@"device-drive"];
 //    cell.detailTextLabel.text = device.deviceType;
 //    NSLog(@"%@", device.deviceType);
 //

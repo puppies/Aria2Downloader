@@ -26,15 +26,15 @@
         DownloadTableViewController *downloadTableViewController = [[DownloadTableViewController alloc] init];
         SegmentNavigationController *nvc1 = [[SegmentNavigationController alloc] initWithRootViewController:downloadTableViewController];
         nvc1.tabBarItem.title = @"下载";
-        nvc1.tabBarItem.image = [UIImage imageNamed:@"clouddownloadoutline"];
-        nvc1.tabBarItem.selectedImage = [UIImage imageNamed:@"clouddownload"];
+        nvc1.tabBarItem.image = [UIImage imageNamed:@"download"];
+        nvc1.tabBarItem.selectedImage = [UIImage imageNamed:@"download-selected"];
         [self addChildViewController:nvc1];
         
         UpnpDeviceTableViewController *upnpDeviceTableViewController = [[UpnpDeviceTableViewController alloc] init];
         SegmentNavigationController *nvc2 = [[SegmentNavigationController alloc] initWithRootViewController:upnpDeviceTableViewController];
         nvc2.tabBarItem.title = @"DLNA";
-        nvc2.tabBarItem.image = [UIImage imageNamed:@"cogoutline"];
-        nvc2.tabBarItem.selectedImage = [UIImage imageNamed:@"cog"];
+        nvc2.tabBarItem.image = [UIImage imageNamed:@"dlna"];
+        nvc2.tabBarItem.selectedImage = [UIImage imageNamed:@"dlna-selected"];
         [self addChildViewController:nvc2];
         
         ButtonTabBar *tabBar = [[ButtonTabBar alloc] init];

@@ -37,7 +37,6 @@ static NSString * const Aria2AppBaseURLString = @"http://192.168.1.1:6800/";
         
         NSSet *acceptableContentTypes = _sharedClient.responseSerializer.acceptableContentTypes;
         _sharedClient.responseSerializer.acceptableContentTypes = [acceptableContentTypes setByAddingObject:@"application/json-rpc"];
-
     });
     
     return _sharedClient;

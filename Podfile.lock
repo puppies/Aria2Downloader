@@ -14,14 +14,17 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Reachability (3.2)
   - YYModel (0.9.10)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
+  - Reachability
   - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   YYModel: fea50373bd53cd04c9a90e580c0ac561c5d1009e
 
 COCOAPODS: 0.39.0

@@ -13,6 +13,7 @@
 #import "NewTaskViewController.h"
 #import "UIView+extension.h"
 #import "ContainerViewController.h"
+#import "Reachability.h"
 
 @interface DownloadTableViewController ()
 
@@ -46,27 +47,37 @@
     [self.tableView addSubview:self.activityIndicatorView];
     [self.activityIndicatorView startAnimating];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:(ContainerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController action:@selector(openSiderView)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:(ContainerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController action:@selector(openSiderView)];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"] style:UIBarButtonItemStylePlain target:(ContainerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController action:@selector(openSiderView)];
     
 //    self.shouldAnimate = YES;
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"%s", __func__);
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-    
+    [self isWIFIConnected:^{
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    } notConnected:^{
+        [self.activityIndicatorView stopAnimating];
+        [self leadToOpenWIFI];
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"%s", __func__);
     [self.timer invalidate];
     self.timer = nil;
 }
 
 - (void)refreshActiveStatus {
     
-    
-
     [Aria2 tellActiveWithSuccess:^(id response) {
         self.activeTasks = (NSArray *)response;
 
@@ -87,9 +98,30 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)isWIFIConnected:(void (^)())connected notConnected:(void (^)())notConnected {
+    Reachability *r = [Reachability reachabilityForLocalWiFi];
+    
+    if (!r.isReachableViaWiFi) {
+        notConnected();
+    } else {
+        connected();
+    }
+}
+
+- (void)leadToOpenWIFI {
+    [self.activityIndicatorView stopAnimating];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"开启Wi-Fi" message:@"局域网应用需要打开Wi-Fi才能使用" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    
+    UIAlertAction *set = [UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
+    }];
+    [alert addAction:set];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -174,5 +206,15 @@
 //        self.shouldAnimate = NO;
 //    }
 //}
+
+- (void)applicationWillEnterForeground {
+    [self isWIFIConnected:^{
+        [self.activityIndicatorView startAnimating];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    } notConnected:^{
+        [self leadToOpenWIFI];
+    }];
+}
 
 @end

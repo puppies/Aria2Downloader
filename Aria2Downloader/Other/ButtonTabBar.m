@@ -23,16 +23,15 @@
     if (self) {
         
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-        attrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:116.0/255 green:57.0/255 blue:81.0/255 alpha:1.0];
+        attrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:46.0/255 green:185.0/255 blue:247.0/255 alpha:1.0];
         
         UITabBarItem *appearance = [UITabBarItem appearance];
         [appearance setTitleTextAttributes:attrs forState:UIControlStateSelected];
         
         UIButton *addBtn = [[UIButton alloc] init];
-        [addBtn setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+        [addBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
 //        [addBtn setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateHighlighted];
         
-        addBtn.size = addBtn.currentImage.size;
         [addBtn addTarget:self action:@selector(addTask) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:addBtn];
@@ -58,6 +57,7 @@
     [super layoutSubviews];
     
     self.addButton.center = CGPointMake(self.width * 0.5, self.height *0.5);
+    self.addButton.size = CGSizeMake(self.height - 5, self.height -5);
  
     CGFloat tabBarButtonW = self.width / 3;
     [self setItemWidth:tabBarButtonW];
