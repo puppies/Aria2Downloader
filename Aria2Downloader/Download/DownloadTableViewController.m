@@ -55,6 +55,7 @@
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [notificationCenter addObserver:self selector:@selector(applicationDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -215,6 +216,11 @@
     } notConnected:^{
         [self leadToOpenWIFI];
     }];
+}
+
+- (void)applicationDidEnterBackground {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 @end
