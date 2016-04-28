@@ -160,6 +160,7 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
         
         [self.player play];
         self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+        self.playBtn.enabled = YES;
     }
 }
 

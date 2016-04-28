@@ -137,7 +137,7 @@
                         <barButtonItem systemItem="flexibleSpace" id="dbR-3b-w8Z"/>
                         <barButtonItem title="Item" image="playback_prev" id="8xL-8U-7w5"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ZUI-Ir-n7R"/>
-                        <barButtonItem image="playback_play" id="eOK-Gp-3wc"/>
+                        <barButtonItem enabled="NO" image="playback_play" id="eOK-Gp-3wc"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="FCc-7m-XXM"/>
                         <barButtonItem image="playback_next" id="3Uf-4b-ZPS"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="vMb-ue-Rul"/>
