@@ -102,10 +102,7 @@
         CGUpnpAvItem *item = (CGUpnpAvItem *)object;
         CGUpnpAvResource *resource = item.resource;
         NSLog(@"item: %@, resource: %@, url:%@", item.title, resource.protocolInfo, item.resourceUrl);
-        
-        self.title = item.title;
-        
-        
+                
         DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
         playbackViewController.item = item;
 
