@@ -22,7 +22,15 @@
 
 #import "Aria2AppClient.h"
 
-static NSString * const Aria2AppBaseURLString = @"http://192.168.1.1:6800/";
+//static NSString * const Aria2AppBaseURLString = @"http://192.168.1.1:6800/";
+static NSString * const defaultIP = @"192.168.1.1";
+
+@interface Aria2AppClient ()
+
+@property (nonatomic)NSURL *url;
+@property (nonatomic)NSURL *defaultBaseURL;
+
+@end
 
 @implementation Aria2AppClient
 
@@ -30,16 +38,39 @@ static NSString * const Aria2AppBaseURLString = @"http://192.168.1.1:6800/";
     static Aria2AppClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[Aria2AppClient alloc] initWithBaseURL:[NSURL URLWithString:Aria2AppBaseURLString]];
+        
+        NSURL *baseURL = [Aria2AppClient baseURLWithUserDefaults];
+        
+        _sharedClient = [[Aria2AppClient alloc] initWithBaseURL:baseURL];
+        _sharedClient.defaultBaseURL = baseURL;
+        
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         _sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
         _sharedClient.responseSerializer =[AFJSONResponseSerializer serializer];
         
         NSSet *acceptableContentTypes = _sharedClient.responseSerializer.acceptableContentTypes;
         _sharedClient.responseSerializer.acceptableContentTypes = [acceptableContentTypes setByAddingObject:@"application/json-rpc"];
+        
+        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter addObserver:_sharedClient selector:@selector(ipDidChanged) name:NSUserDefaultsDidChangeNotification object:nil];
     });
     
     return _sharedClient;
+}
+
++ (NSURL *)baseURLWithUserDefaults {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *ip = [userDefaults stringForKey:@"routerIP"];
+    NSString *baseURL = [NSString stringWithFormat:@"http://%@:6800/", ip? ip : defaultIP];
+    return [NSURL URLWithString:baseURL];
+}
+
+- (NSURL *)baseURL {
+    return self.url? self.url : self.defaultBaseURL;
+}
+
+- (void)ipDidChanged {
+    self.url = [Aria2AppClient baseURLWithUserDefaults];
 }
 
 @end

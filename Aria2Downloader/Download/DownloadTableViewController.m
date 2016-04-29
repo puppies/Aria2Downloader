@@ -16,11 +16,15 @@
 #import "Reachability.h"
 
 @interface DownloadTableViewController ()
+{
+    NSInteger _refreshInterval;
+}
 
 @property (nonatomic)NSArray *activeTasks;
 @property (nonatomic)NSArray *otherTasks;
 
 @property (nonatomic)NSTimer *timer;
+//@property (nonatomic)NSInteger refreshInterval;
 
 @property (nonatomic)UIActivityIndicatorView *activityIndicatorView;
 
@@ -56,6 +60,13 @@
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     [notificationCenter addObserver:self selector:@selector(applicationDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [notificationCenter addObserver:self selector:@selector(settingsDidChanged) name:NSUserDefaultsDidChangeNotification object:nil];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (!(_refreshInterval = [userDefaults integerForKey:@"refreshInterval"])) {
+        _refreshInterval = 5;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,8 +74,7 @@
     NSLog(@"%s", __func__);
     
     [self isWIFIConnected:^{
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+        [self enableTimer:YES];
     } notConnected:^{
         [self.activityIndicatorView stopAnimating];
         [self leadToOpenWIFI];
@@ -211,16 +221,34 @@
 - (void)applicationWillEnterForeground {
     [self isWIFIConnected:^{
         [self.activityIndicatorView startAnimating];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+        [self enableTimer:YES];
     } notConnected:^{
         [self leadToOpenWIFI];
     }];
 }
 
 - (void)applicationDidEnterBackground {
-    [self.timer invalidate];
-    self.timer = nil;
+    [self enableTimer:NO];
+}
+
+- (void)settingsDidChanged {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger newInterval = [userDefaults integerForKey:@"refreshInterval"];
+    if (newInterval != _refreshInterval && self.timer) {
+        [self enableTimer:NO];
+        _refreshInterval = newInterval;
+        [self enableTimer:YES];
+    }
+}
+
+- (void)enableTimer:(BOOL)enable {
+    if (enable) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:_refreshInterval target:self selector:@selector(refreshActiveStatus) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    } else {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
 }
 
 @end
