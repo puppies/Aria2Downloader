@@ -234,7 +234,7 @@
 - (void)settingsDidChanged {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger newInterval = [userDefaults integerForKey:@"refreshInterval"];
-    if (newInterval != _refreshInterval && self.timer) {
+    if (newInterval && (newInterval != _refreshInterval) && self.timer) {
         [self enableTimer:NO];
         _refreshInterval = newInterval;
         [self enableTimer:YES];

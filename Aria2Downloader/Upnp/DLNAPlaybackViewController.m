@@ -17,22 +17,23 @@
 @property (nonatomic)AVPlayerLayer *layer;
 
 @property (nonatomic)IBOutlet UIView *topView;
-@property (nonatomic)IBOutlet UIToolbar *bottomToolBar;
+@property (nonatomic)IBOutlet UIView *bottomToolBar;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *timePassedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLeftLabel;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic)UIButton            *infoButton;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *playBtn;
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
 
-@property (nonatomic)UIBarButtonItem     *pauseBtn;
-@property (nonatomic)UIBarButtonItem     *rewindBtn;
-@property (nonatomic)UIBarButtonItem     *fforwardBtn;
-@property (nonatomic)UIBarButtonItem     *spaceItem;
-@property (nonatomic)UIBarButtonItem     *fixedSpaceItem;
+//@property (nonatomic)UIBarButtonItem     *pauseBtn;
+//@property (nonatomic)UIBarButtonItem     *rewindBtn;
+//@property (nonatomic)UIBarButtonItem     *fforwardBtn;
+//@property (nonatomic)UIBarButtonItem     *spaceItem;
+//@property (nonatomic)UIBarButtonItem     *fixedSpaceItem;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
@@ -55,8 +56,9 @@
     [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeLeft) forKey:@"orientation"];    
     
     [self.activityIndicatorView startAnimating];
-    self.playBtn.target = self;
-    self.playBtn.action = @selector(play);
+//    self.playBtn.target = self;
+//    self.playBtn.action = @selector(play);
+    [self.playBtn addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];
     
     [self.progressSlider addTarget:self action:@selector(seek) forControlEvents:UIControlEventValueChanged];
 }
@@ -66,7 +68,7 @@
     
     if (!self.player) {
         AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:self.item.resourceUrl];
-        NSLog(@"resourceUrl: %@", self.item.resourceUrl);
+//        NSLog(@"resourceUrl: %@", _item.resourceUrl);
         
         self.player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
         
@@ -82,6 +84,7 @@
     [super viewWillAppear:animated];
     [UIApplication sharedApplication].statusBarHidden = NO;
     
+    self.titleLabel.text = self.item.title;
     
     NSTimer *timer = [NSTimer timerWithTimeInterval:8 target:self selector:@selector(hideUI) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
@@ -159,7 +162,8 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
         [self.activityIndicatorView stopAnimating];
         
         [self.player play];
-        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+//        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+        [self.playBtn setImage:[UIImage imageNamed:@"playback_pause"] forState:UIControlStateNormal];
         self.playBtn.enabled = YES;
     }
 }
@@ -206,10 +210,12 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
 - (void)play {
     if (self.player.rate) {
         [self.player pause];
-        self.playBtn.image = [UIImage imageNamed:@"playback_play"];
+//        self.playBtn.image = [UIImage imageNamed:@"playback_play"];
+        [self.playBtn setImage:[UIImage imageNamed:@"playback_play"] forState:UIControlStateNormal];
     } else {
         [self.player play];
-        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+//        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+        [self.playBtn setImage:[UIImage imageNamed:@"playback_pause"] forState:UIControlStateNormal];
     }
 }
 
@@ -218,10 +224,12 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
     [self.player seekToTime:time completionHandler:^(BOOL finished) {
         if (finished) {
             [self.player play];
-            self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+//            self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
+            [self.playBtn setImage:[UIImage imageNamed:@"playback_pause"] forState:UIControlStateNormal];
         } else {
             [self.player pause];
-            self.playBtn.image = [UIImage imageNamed:@"playback_play"];
+//            self.playBtn.image = [UIImage imageNamed:@"playback_play"];
+            [self.playBtn setImage:[UIImage imageNamed:@"playback_play"] forState:UIControlStateNormal];
         }
     }];
 }

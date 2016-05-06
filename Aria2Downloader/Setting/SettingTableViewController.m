@@ -43,8 +43,8 @@
         self.refreshTimeTextField.text = [NSString stringWithFormat:@"%ld", (long)timeInterval];
     }
     
-    [userDefaults setObject:self.routerIPTextField.text forKey:@"routerIP"];
-    [userDefaults setInteger:self.refreshTimeTextField.text.integerValue forKey:@"refreshInterval"];
+//    [userDefaults setObject:self.routerIPTextField.text forKey:@"routerIP"];
+//    [userDefaults setInteger:self.refreshTimeTextField.text.integerValue forKey:@"refreshInterval"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -54,11 +54,16 @@
     NSString *ip = self.routerIPTextField.text;
     if ([self isValidIP:ip]) {
         [userDefaults setObject:ip forKey:@"routerIP"];
+    } else {
+        self.routerIPTextField.text = [userDefaults stringForKey:@"routerIP"];
     }
     
     NSInteger timeInterval = self.refreshTimeTextField.text.integerValue;
     if ([self isValidPositiveInteger:timeInterval]) {
         [userDefaults setInteger:timeInterval forKey:@"refreshInterval"];
+    } else {
+        NSInteger interval = [userDefaults integerForKey:@"refreshInterval"];
+        self.refreshTimeTextField.text = interval?  [NSString stringWithFormat:@"%ld", (long)interval] : @"";
     }
 }
 
@@ -77,8 +82,8 @@
 - (BOOL)isValidPositiveInteger:(NSInteger)value {
     NSString *predicateString = @"^[1-9]\\d*$";
     NSPredicate *valuePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", predicateString];
-    
-    return [valuePredicate evaluateWithObject:[NSString stringWithFormat:@"%ld", (long)value]];
+    NSString *valueString = [NSString stringWithFormat:@"%ld", (long)value];
+    return [valuePredicate evaluateWithObject:valueString];
 }
 
 @end

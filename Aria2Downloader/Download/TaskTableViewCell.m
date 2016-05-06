@@ -198,7 +198,7 @@
             text = @"暂停";
             color = [UIColor grayColor];
         } else if ([task.status isEqualToString:@"error"]) {
-            imageName = @"restartoutline";
+            imageName = @"restart";
             highlightImageName = @"restart";
             text = @"失败";
             color = [UIColor redColor];
@@ -214,7 +214,7 @@
             color = [UIColor grayColor];
         }
         [self.controlButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        [self.controlButton setImage:[UIImage imageNamed:highlightImageName] forState:UIControlStateHighlighted];
+//        [self.controlButton setImage:[UIImage imageNamed:highlightImageName] forState:UIControlStateHighlighted];
         [self.controlButton setTitle:text forState:UIControlStateNormal];
         [self.controlButton setTitleColor:color forState:UIControlStateNormal];
     }

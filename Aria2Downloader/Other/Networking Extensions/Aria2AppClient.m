@@ -38,11 +38,11 @@ static NSString * const defaultIP = @"192.168.1.1";
     static Aria2AppClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        NSURL *baseURL = [Aria2AppClient baseURLWithUserDefaults];
-        
-        _sharedClient = [[Aria2AppClient alloc] initWithBaseURL:baseURL];
-        _sharedClient.defaultBaseURL = baseURL;
+
+        NSURL *url = [Aria2AppClient baseURLWithUserDefaults];
+
+        _sharedClient = [[Aria2AppClient alloc] initWithBaseURL:url];
+        _sharedClient.defaultBaseURL = url;
         
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         _sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];

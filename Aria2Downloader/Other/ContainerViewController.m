@@ -25,13 +25,19 @@ const int SettingViewWidth = 250;
 
 @implementation ContainerViewController
 
+- (SettingTableViewController *)settingViewController {
+    if (!_settingViewController) {
+        UIStoryboard *settingTableViewStoryBoard = [UIStoryboard storyboardWithName:@"SettingTableViewController" bundle:nil];
+        SettingTableViewController *settingViewController = [settingTableViewStoryBoard instantiateViewControllerWithIdentifier:@"settingTableView"];
+        
+        _settingViewController = settingViewController;
+    }
+    return _settingViewController;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
-        UIStoryboard *settingTableViewStoryBoard = [UIStoryboard storyboardWithName:@"SettingTableViewController" bundle:nil];
-        SettingTableViewController *settingViewController = [settingTableViewStoryBoard instantiateViewControllerWithIdentifier:@"settingTableView"];
-
-        self.settingViewController = settingViewController;
         
         AriaTabBarController *tabBarController = [[AriaTabBarController alloc] init];
         
