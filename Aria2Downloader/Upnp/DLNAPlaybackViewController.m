@@ -162,6 +162,9 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
         [self.activityIndicatorView stopAnimating];
         
         [self.player play];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didPlayToEndTime) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+        
 //        self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
         [self.playBtn setImage:[UIImage imageNamed:@"playback_pause"] forState:UIControlStateNormal];
         self.playBtn.enabled = YES;
@@ -221,7 +224,7 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
 
 - (void)seek {
     CMTime time = CMTimeMake(self.player.currentItem.duration.value * self.progressSlider.value, self.player.currentItem.duration.timescale);
-    [self.player seekToTime:time completionHandler:^(BOOL finished) {
+    [self.player seekToTime:time toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
         if (finished) {
             [self.player play];
 //            self.playBtn.image = [UIImage imageNamed:@"playback_pause"];
@@ -246,6 +249,14 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft)
         
         [self.hideTimer invalidate];
         self.hideTimer = nil;
+    }];
+}
+
+#pragma mark - notification handlers
+
+- (void)didPlayToEndTime {
+    [self.player.currentItem seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
+        [self.playBtn setImage:[UIImage imageNamed:@"playback_play"] forState:UIControlStateNormal];
     }];
 }
 

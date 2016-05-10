@@ -10,6 +10,7 @@
 #import "mUPnP/mUPnP.h"
 #import "DLNAPlaybackViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SVProgressHUD.h"
 
 @interface UpnpServerContentTableViewController ()
 
@@ -97,17 +98,29 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     CGUpnpAvObject *object = self.objects[indexPath.row];
     if (object.isItem) {
         CGUpnpAvItem *item = (CGUpnpAvItem *)object;
-        CGUpnpAvResource *resource = item.resource;
-        NSLog(@"item: %@, resource: %@, url:%@", item.title, resource.protocolInfo, item.resourceUrl);
-                
-        DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
-        playbackViewController.item = item;
-
-        [self presentViewController:playbackViewController animated:YES completion:nil];
         
+        CGUpnpAvResource *resource = item.resource;
+        NSLog(@"item: %@, MIME: %@, url:%@", item.title, resource.mimeType, item.resourceUrl);
+//        NSLog(@"%@", [AVURLAsset audiovisualMIMETypes]);
+//        NSLog(@"%@", [AVURLAsset audiovisualTypes]);
+       
+        if ([AVURLAsset isPlayableExtendedMIMEType:resource.mimeType] && ![resource.mimeType isEqualToString:@"video/avi"]) {
+            DLNAPlaybackViewController *playbackViewController = [[DLNAPlaybackViewController alloc] init];
+            playbackViewController.item = item;
+            
+            [self presentViewController:playbackViewController animated:YES completion:nil];
+        } else {
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            [SVProgressHUD showErrorWithStatus:@"不支持的媒体格式"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+            });
+        }
     } else {
         UpnpServerContentTableViewController *contentController = [[UpnpServerContentTableViewController alloc] initWithAvServer:self.server atIndexPath:indexPath objectId:object.objectId];
         
