@@ -203,12 +203,12 @@
             text = @"失败";
             color = [UIColor redColor];
         } else if ([task.status isEqualToString:@"removed"]) {
-            imageName = @"restartoutline";
+            imageName = @"removed";
             highlightImageName = @"restart";
             text = @"已移除";
             color = [UIColor redColor];
         } else if ([task.status isEqualToString:@"active"]) {
-            imageName = @"pauseoutline";
+            imageName = @"pause";
             highlightImageName = @"pause";
             text = speed;
             color = [UIColor grayColor];

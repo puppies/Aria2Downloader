@@ -26,47 +26,20 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
                 </textView>
-                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KY-4L-anb">
-                    <rect key="frame" x="79" y="194" width="501" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文件名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hr-p9-vMZ">
-                    <rect key="frame" x="20" y="198" width="51" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="提示：支持HTTP/FTP/SFTP及Magnet链接" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdE-tm-v0j">
+                    <rect key="frame" x="20" y="174" width="194" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmU-3s-PNV">
-                    <rect key="frame" x="20" y="232" width="51" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6g-N3-bc1">
-                    <rect key="frame" x="79" y="228" width="501" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="pmU-3s-PNV" firstAttribute="width" secondItem="6hr-p9-vMZ" secondAttribute="width" id="3o1-rl-LE1"/>
-                <constraint firstAttribute="trailing" secondItem="5KY-4L-anb" secondAttribute="trailing" constant="20" symbolic="YES" id="9pM-Fd-gJa"/>
+                <constraint firstItem="SdE-tm-v0j" firstAttribute="leading" secondItem="bwj-Nn-Lui" secondAttribute="leading" id="66L-Fv-R76"/>
                 <constraint firstItem="bwj-Nn-Lui" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="GX4-g8-tK4"/>
-                <constraint firstItem="u6g-N3-bc1" firstAttribute="leading" secondItem="5KY-4L-anb" secondAttribute="leading" id="KS8-23-BUe"/>
-                <constraint firstItem="u6g-N3-bc1" firstAttribute="height" secondItem="5KY-4L-anb" secondAttribute="height" id="VSQ-iy-OYA"/>
-                <constraint firstItem="5KY-4L-anb" firstAttribute="leading" secondItem="6hr-p9-vMZ" secondAttribute="trailing" constant="8" symbolic="YES" id="WMk-sp-RI7"/>
-                <constraint firstItem="6hr-p9-vMZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="XwZ-ol-It0"/>
-                <constraint firstItem="pmU-3s-PNV" firstAttribute="top" secondItem="6hr-p9-vMZ" secondAttribute="bottom" constant="14" id="ZZJ-x1-h4H"/>
-                <constraint firstItem="6hr-p9-vMZ" firstAttribute="top" secondItem="bwj-Nn-Lui" secondAttribute="bottom" constant="32" id="aF6-9E-vUQ"/>
                 <constraint firstItem="bwj-Nn-Lui" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="o5U-O8-QaG"/>
-                <constraint firstAttribute="trailing" secondItem="u6g-N3-bc1" secondAttribute="trailing" constant="20" symbolic="YES" id="oWl-ee-mRt"/>
-                <constraint firstItem="u6g-N3-bc1" firstAttribute="baseline" secondItem="pmU-3s-PNV" secondAttribute="baseline" id="qAQ-H3-i2w"/>
-                <constraint firstItem="pmU-3s-PNV" firstAttribute="height" secondItem="6hr-p9-vMZ" secondAttribute="height" id="tME-P1-u77"/>
-                <constraint firstItem="5KY-4L-anb" firstAttribute="baseline" secondItem="6hr-p9-vMZ" secondAttribute="baseline" id="vS0-Ro-tLm"/>
+                <constraint firstItem="SdE-tm-v0j" firstAttribute="top" secondItem="bwj-Nn-Lui" secondAttribute="bottom" constant="8" id="sJk-VQ-Acs"/>
                 <constraint firstAttribute="trailing" secondItem="bwj-Nn-Lui" secondAttribute="trailing" constant="20" symbolic="YES" id="wjB-G8-1eK"/>
-                <constraint firstItem="pmU-3s-PNV" firstAttribute="leading" secondItem="6hr-p9-vMZ" secondAttribute="leading" id="yy3-hn-Q7b"/>
             </constraints>
         </view>
     </objects>
